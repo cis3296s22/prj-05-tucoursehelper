@@ -3,4 +3,6 @@ Temple Course Helper is an application that will take the users' course numbers 
 You can run this code by simply clicking the executable file which will take you straight to the interactive UI.
 
 *** TRELLO BOARD ***
+
+
 Link to the Trello Board: https://trello.com/b/dLrgwZiM/project-trello
