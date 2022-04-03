@@ -1,6 +1,0 @@
-C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\WindowsFormsApp1\obj\Debug\TempleCourseHelper.csproj.AssemblyReference.cache
-C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\WindowsFormsApp1\obj\Debug\TempleCourseHelper.csproj.SuggestedBindingRedirects.cache
-C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\WindowsFormsApp1\obj\Debug\TempleCourseHelper.frmMenu.resources
-C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
-C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\WindowsFormsApp1\obj\Debug\TempleCourseHelper.csproj.GenerateResource.cache
-C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\WindowsFormsApp1\obj\Debug\TempleCourseHelper.csproj.CoreCompileInputs.cache
