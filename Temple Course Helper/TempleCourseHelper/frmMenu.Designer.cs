@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             this.lblCourse1 = new System.Windows.Forms.Label();
             this.Course2 = new System.Windows.Forms.Label();
             this.lblCourse3 = new System.Windows.Forms.Label();
@@ -169,6 +170,7 @@
             this.Controls.Add(this.lblCourse4);
             this.Controls.Add(this.Course2);
             this.Controls.Add(this.lblCourse1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMenu";
             this.Text = "Temple Course Helper";
             this.ResumeLayout(false);
