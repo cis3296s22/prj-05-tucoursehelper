@@ -9,6 +9,8 @@ For Temple’s students, their parents and professors who need an easier and mor
 
 Prerequisites:
 
+* Chrome Web Browser
+* Chrome WebDriver Download: https://chromedriver.storage.googleapis.com/index.html
 * Operating system: Windows 11, Windows 10, Windows 8.1
 * Visual Studio Enterprice 2022
 * Microsoft Access 2019
