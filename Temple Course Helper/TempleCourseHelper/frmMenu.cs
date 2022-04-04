@@ -26,7 +26,9 @@ namespace TempleCourseHelper
             "@temple.edu",
             "@yahoo.com",
             "@hotmail.com",
-            "@outlook.com" };
+            "@outlook.com",
+            "@aol.com",
+            "@msn.com"};
 
         public frmMenu()
         {
@@ -36,7 +38,7 @@ namespace TempleCourseHelper
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //Checks if all textboxes have a valid input
-            if (badInput(txtBoxCourse1)|| badInput(txtBoxCourse2) || badInput(txtBoxCourse3)|| badInput(txtBoxCourse4))
+            if (badInput(txtBoxCourse1)|| badInput(txtBoxCourse4) || badInput(txtBoxCourse3)|| badInput(txtBoxCourse2))
             {
                 MessageBox.Show("Either all boxes have not been filled\nOr the course number is invalid");
             }
@@ -51,9 +53,11 @@ namespace TempleCourseHelper
             {
                 MessageBox.Show("Either the box has not been filled\nOr the email is invalid (Illegal charecter or incorrect mailbox)");
             }
-            MessageBox.Show("Email has been send to: " + txtBoxEmail.Text);
-            //Code to send via Twilio
-
+            else 
+            {
+                MessageBox.Show("Email has been send to: " + txtBoxEmail.Text.ToLower());
+                //Code to send via Twilio
+            }
         }
         private bool badInput(Control ctrl)
         {
@@ -71,7 +75,7 @@ namespace TempleCourseHelper
                 //Checks if the box is empty, is a valid email inbox or is less than 4 charecters meaning user cant write "@.com"
                 for (int i = 0; i < emailList.Length; i++)
                 {
-                    if (ctrl.Text.Contains(emailList[i]) && ctrl.Text.Length > 10 && !ctrl.Text.Contains(" "))
+                    if (ctrl.Text.ToLower().Contains(emailList[i]) && ctrl.Text.IndexOf("@") != 0 && !ctrl.Text.Contains(" "))
                     {
                         return false;
                     }

@@ -14,10 +14,11 @@ namespace TempleCourseHelper
 {
     internal class Worker
     {
-        ChromeDriver driver = new ChromeDriver(@"C:\Users\Sophia\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\Drivers");
         Dictionary<string, CourseDetails> Course = new Dictionary<string, CourseDetails>();
         String TempleURL = "https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch";
-        public void startBrowser()
+
+
+        public Dictionary<string, CourseDetails> searchCatalog()
         {
             //Open Chrome "headless" or not visible to user
             //var chromeOptions = new ChromeOptions();
@@ -25,19 +26,12 @@ namespace TempleCourseHelper
 
             //Add chrom exe location
             //driver = new ChromeDriver(chromeOptions);
-            driver = new ChromeDriver();
-        }
-        public void closeBrowser()
-        {
-            //Add chrom exe location
-            driver.Close();//*[@id="textcontainer"]/div/div[2]/p/strong
-        }
-        public Dictionary<string, CourseDetails> searchCatalog()
-        {
-            startBrowser();
+            ChromeDriver driver = new ChromeDriver(@"../../" + "/Driver/");
 
             driver.Navigate().GoToUrl(TempleURL);
             Thread.Sleep(3);
+
+
             //EXAMPLE
             //
             //Here is a full xpath copied from the link above. If you follow the html code you can see we need to iterate the li[x].  
@@ -56,8 +50,7 @@ namespace TempleCourseHelper
             //*[@id="textcontainer"]/div/div[2]/p/strong
 
             //Fill the Dictionary
-
-            closeBrowser();
+            //driver.Close();
             return Course;
         }
     }
