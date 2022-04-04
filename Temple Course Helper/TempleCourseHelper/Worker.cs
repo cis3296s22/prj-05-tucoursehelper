@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+
 
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+
 
 namespace TempleCourseHelper
 {
@@ -13,11 +16,15 @@ namespace TempleCourseHelper
     {
         IWebDriver driver;
         Dictionary<string, CourseDetails> Course = new Dictionary<string, CourseDetails>();
-
+        String TempleURL = "https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch";
         public void startBrowser()
         {
+            //Open Chrome "headless" or not visible to user
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArguments("headless");
+
             //Add chrom exe location
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(chromeOptions);
         }
         public void closeBrowser()
         {
@@ -27,7 +34,9 @@ namespace TempleCourseHelper
         public Dictionary<string, CourseDetails> searchCatalog()
         {
             startBrowser();
-            driver.Url = "https://bulletin.temple.edu/courses/";
+
+            driver.Navigate().GoToUrl(TempleURL);
+            Thread.Sleep(3);
             //EXAMPLE
             //
             //Here is a full xpath copied from the link above. If you follow the html code you can see we need to iterate the li[x].  
