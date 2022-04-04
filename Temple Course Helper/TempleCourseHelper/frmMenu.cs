@@ -58,7 +58,7 @@ namespace TempleCourseHelper
             if (!ctrl.Name.Equals("txtBoxEmail"))
             {
                 //Checks if the box is not empty and if the course code is 4 keys in length
-                if (ctrl.Text.Length == 4)
+                if (ctrl.Text.Length == 4 && !ctrl.Text.Contains(" "))
                 {
                     return false;
                 }
@@ -68,7 +68,7 @@ namespace TempleCourseHelper
                 //Checks if the box is empty, is a valid email inbox or is less than 4 charecters meaning user cant write "@.com"
                 for (int i = 0; i < emailList.Length; i++)
                 {
-                    if (ctrl.Text.Contains(emailList[i]) && ctrl.Text.Length > 10)
+                    if (ctrl.Text.Contains(emailList[i]) && ctrl.Text.Length > 10 && !ctrl.Text.Contains(" "))
                     {
                         return false;
                     }
