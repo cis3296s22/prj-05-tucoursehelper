@@ -20,7 +20,10 @@ namespace TempleCourseHelper
         Worker worker = new Worker();
         //Dictionary for course details
         Dictionary<string, CourseDetails> Course = new Dictionary<string, CourseDetails>();
-
+        ArrayList emailList = new ArrayList()
+        {
+            "@gmail.com","@temple.edu","@yahoo.com","@hotmail.com","@outlook.com"
+        };
 
         public frmMenu()
         {
@@ -39,18 +42,35 @@ namespace TempleCourseHelper
                 Course = worker.searchCatalog();
             }
         }
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            if (badInput(txtBoxEmail))
+            {
+                MessageBox.Show("Either the box has not been filled\nOr the email is invalid");
+            }
+        }
         private bool badInput(Control ctrl)
         {
             //Checks if the box is not empty and if the course code is 4 keys in length
-            if (ctrl.Text == "" || ctrl.Text.Length != 4)
+            if (!ctrl.Name.Equals("txtBoxEmail"))
             {
-                return true;
+                if (ctrl.Text == "" || ctrl.Text.Length != 4)
+                {
+                    return true;
+                }
             }
             else
             {
-                return false;
+                //Checs if the box is empty, is a valid email inbox or is less than 4 charecters meaning user cant write "@.com"
+                for (int i = 0; i < emailList.Count; i++)
+                {
+                    if (ctrl.Text == "" || ctrl.Text.IndexOfAny((char[])(emailList[i]))<=0 || ctrl.Text.Length < 4)
+                    {
+                        return true;
+                    }
+                }
             }
-       
+            return false;
         }
     }
 }

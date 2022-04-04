@@ -143,6 +143,7 @@
             this.btnSend.TabIndex = 11;
             this.btnSend.Text = "Send Info";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // lblEmail
             // 
