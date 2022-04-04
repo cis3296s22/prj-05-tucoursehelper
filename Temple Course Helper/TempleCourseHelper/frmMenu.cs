@@ -49,8 +49,11 @@ namespace TempleCourseHelper
         {
             if (badInput(txtBoxEmail))
             {
-                MessageBox.Show("Either the box has not been filled\nOr the email is invalid");
+                MessageBox.Show("Either the box has not been filled\nOr the email is invalid (Illegal charecter or incorrect mailbox)");
             }
+            MessageBox.Show("Email has been send to: " + txtBoxEmail.Text);
+            //Code to send via Twilio
+
         }
         private bool badInput(Control ctrl)
         {

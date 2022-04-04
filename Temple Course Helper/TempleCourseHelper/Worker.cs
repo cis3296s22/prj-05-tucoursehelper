@@ -14,17 +14,18 @@ namespace TempleCourseHelper
 {
     internal class Worker
     {
-        IWebDriver driver;
+        ChromeDriver driver = new ChromeDriver(@"C:\Users\Sophia\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\Drivers");
         Dictionary<string, CourseDetails> Course = new Dictionary<string, CourseDetails>();
         String TempleURL = "https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch";
         public void startBrowser()
         {
             //Open Chrome "headless" or not visible to user
-            var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments("headless");
+            //var chromeOptions = new ChromeOptions();
+            //chromeOptions.AddArguments("headless");
 
             //Add chrom exe location
-            driver = new ChromeDriver(chromeOptions);
+            //driver = new ChromeDriver(chromeOptions);
+            driver = new ChromeDriver();
         }
         public void closeBrowser()
         {
