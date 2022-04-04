@@ -20,10 +20,13 @@ namespace TempleCourseHelper
         Worker worker = new Worker();
         //Dictionary for course details
         Dictionary<string, CourseDetails> Course = new Dictionary<string, CourseDetails>();
-        ArrayList emailList = new ArrayList()
-        {
-            "@gmail.com","@temple.edu","@yahoo.com","@hotmail.com","@outlook.com"
-        };
+
+        string[] emailList = new string[] {
+            "@gmail.com",
+            "@temple.edu",
+            "@yahoo.com",
+            "@hotmail.com",
+            "@outlook.com" };
 
         public frmMenu()
         {
@@ -51,26 +54,27 @@ namespace TempleCourseHelper
         }
         private bool badInput(Control ctrl)
         {
-            //Checks if the box is not empty and if the course code is 4 keys in length
+            //Will skip this if not txtBoxEmail
             if (!ctrl.Name.Equals("txtBoxEmail"))
             {
-                if (ctrl.Text == "" || ctrl.Text.Length != 4)
+                //Checks if the box is not empty and if the course code is 4 keys in length
+                if (ctrl.Text.Length == 4)
                 {
-                    return true;
+                    return false;
                 }
             }
             else
             {
-                //Checs if the box is empty, is a valid email inbox or is less than 4 charecters meaning user cant write "@.com"
-                for (int i = 0; i < emailList.Count; i++)
+                //Checks if the box is empty, is a valid email inbox or is less than 4 charecters meaning user cant write "@.com"
+                for (int i = 0; i < emailList.Length; i++)
                 {
-                    if (ctrl.Text == "" || ctrl.Text.IndexOfAny((char[])(emailList[i]))<=0 || ctrl.Text.Length < 4)
+                    if (ctrl.Text.Contains(emailList[i]) && ctrl.Text.Length > 10)
                     {
-                        return true;
+                        return false;
                     }
                 }
             }
-            return false;
+            return true;
         }
     }
 }
