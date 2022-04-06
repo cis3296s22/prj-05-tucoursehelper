@@ -36,7 +36,27 @@ namespace TempleCourseHelper
             Thread.Sleep(1);
 
             Selector = driver.FindElement(By.Id("s2id_autogen1_search"));
-            Selector.SendKeys("2022 Spring");
+            Selector.SendKeys("2022 Fall");
+            Selector.Click();
+            Thread.Sleep(1);
+
+            Selector = driver.FindElement(By.Id("select2-results-1"));
+            Selector.Click();
+
+            Selector = driver.FindElement(By.Id("term-go"));
+            Selector.Click();
+            Thread.Sleep(1);
+
+            Selector = driver.FindElement(By.Id("s2id_txt_subject"));
+            Selector.Click();
+            Selector = driver.FindElement(By.Id("s2id_autogen1"));
+            Selector.SendKeys("CIS");
+
+            Selector = driver.FindElement(By.Id("txt_course_number_range_From"));
+            Selector.Click();
+            Selector.SendKeys("3039");
+
+            Selector = driver.FindElement(By.Id("search-go"));
             Selector.Click();
             Thread.Sleep(1);
 
