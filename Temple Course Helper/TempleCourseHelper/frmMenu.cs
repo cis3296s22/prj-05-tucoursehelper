@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -82,6 +83,55 @@ namespace TempleCourseHelper
                 }
             }
             return true;
+        }
+        private void disableControl(Control ctrl)
+        {
+            ctrl.Enabled = false;
+            ctrl.Visible = false;
+        }
+        private void enableControl(Control ctrl)
+        {
+            ctrl.Enabled = true;
+            ctrl.Visible = true;
+        }
+
+        private void btnEnterID_Click(object sender, EventArgs e)
+        {
+            //Code for database
+
+
+            //replaces all whitespaces \s with empty strings
+            String IDChecker = Regex.Replace(txtBoxTUID.Text, @"\s", "");
+
+            //checks if input is valid
+            for (int i =0; i < IDChecker.Length; i++){
+                if(char.IsNumber(IDChecker[i]) && IDChecker.Length == 9)
+                {
+                    //Disable and enables appropriate controls
+                    disableControl(txtBoxTUID);
+                    disableControl(btnEnterID);
+                    disableControl(lblTUID);
+                    enableControl(lblCourse1);
+                    enableControl(lblCourse2);
+                    enableControl(lblCourse3);
+                    enableControl(lblCourse4);
+                    enableControl(lblResults);
+                    enableControl(lblEmail);
+                    enableControl(btnSearch);
+                    enableControl(btnSend);
+                    enableControl(txtBoxCourse1);
+                    enableControl(txtBoxCourse2);
+                    enableControl(txtBoxCourse3);
+                    enableControl(txtBoxCourse4);
+                    enableControl(txtBoxEmail);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid 9-digit TUID");
+                    return;
+                }
+            }
+            
         }
     }
 }
