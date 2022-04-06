@@ -16,7 +16,7 @@ namespace TempleCourseHelper
     {
         Dictionary<string, CourseDetails> Course = new Dictionary<string, CourseDetails>();
         String TempleURL = "https://prd-xereg.temple.edu/StudentRegistrationSsb/ssb/term/termSelection?mode=courseSearch";
-
+        IWebElement Selector;
 
         public Dictionary<string, CourseDetails> searchCatalog()
         {
@@ -31,6 +31,14 @@ namespace TempleCourseHelper
             driver.Navigate().GoToUrl(TempleURL);
             Thread.Sleep(3);
 
+            Selector = driver.FindElement(By.Id("s2id_txt_term"));
+            Selector.Click();
+            Thread.Sleep(1);
+
+            Selector = driver.FindElement(By.Id("s2id_autogen1_search"));
+            Selector.SendKeys("2022 Spring");
+            Selector.Click();
+            Thread.Sleep(1);
 
             //EXAMPLE
             //
