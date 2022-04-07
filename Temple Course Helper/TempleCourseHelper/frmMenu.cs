@@ -105,7 +105,7 @@ namespace TempleCourseHelper
 
             //checks if input is valid
             for (int i =0; i < IDChecker.Length; i++){
-                if(char.IsNumber(IDChecker[i]) && IDChecker.Length == 9)
+                if(char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)
                 {
                     //Disable and enables appropriate controls
                     disableControl(txtBoxTUID);

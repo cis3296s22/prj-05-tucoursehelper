@@ -85,3 +85,4 @@ C:\Users\Sophia\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\Temp
 C:\Users\Sophia\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.csproj.CopyComplete
 C:\Users\Sophia\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.exe
 C:\Users\Sophia\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.pdb
+C:\Users\akozh\Desktop\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\WebDriver.Support.dll
