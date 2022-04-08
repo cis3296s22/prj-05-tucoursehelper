@@ -17,7 +17,6 @@ namespace TempleCourseHelper
     internal class Worker
     {
         Dictionary<int, CourseDetails> CourseSchedule = new Dictionary<int, CourseDetails>();
-        CourseDetails courseDetails = new CourseDetails();
         String CoursicleURL = "https://www.coursicle.com/temple/";
 
         public Dictionary<int, CourseDetails> searchCatalog(String[]courseNumbers)
@@ -37,6 +36,7 @@ namespace TempleCourseHelper
             //Searches 4 classes
             for (int i = 0; i < courseNumbers.Length; i++)
             {
+                CourseDetails courseDetails = new CourseDetails();
                 //Searches course
                 driver.FindElement(By.Id("searchBox")).SendKeys("CIS "+courseNumbers[i]);
                 Thread.Sleep(300);
@@ -72,28 +72,21 @@ namespace TempleCourseHelper
 
                 //Dictionary<string, CourseDetails> CourseSchedule = new Dictionary<string, CourseDetails>();
                 CourseSchedule.Add((i+1), courseDetails);
-
+                Console.WriteLine(CourseSchedule);
                 driver.FindElement(By.Id("searchBox")).Clear();
             }
 
-
-
+            //CourseSchedule.Add(1, courseDetails);
+            //CourseSchedule.Add(2, courseDetails);
+        
             driver.Close();
             return CourseSchedule;
         }
 
-        public void setupDBConnection()
-        {
-            //Setup DB connection
-        }
-        public void setDBData()
-        {
-            //Add code to set data in DB
-        }
-        public CourseDetails getDBData()
-        {
-            //Add code to set each attribute of courseDetails from DB
-            return courseDetails;
-        }
+        
+            //Call Setup DB connection
+
+            //Call 
+   
     }
 }

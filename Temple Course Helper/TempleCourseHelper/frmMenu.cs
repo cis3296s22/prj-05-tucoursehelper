@@ -56,6 +56,9 @@ namespace TempleCourseHelper
                 };
                 Course = worker.searchCatalog(courseNumbers);
 
+                foreach (KeyValuePair<int, CourseDetails> kv in Course)
+                    MessageBox.Show(kv.Value.getCourseName()+"\n"+ kv.Value.getCourseProfessor());// print all the values
+
             }
         }
         private void btnSend_Click(object sender, EventArgs e)
