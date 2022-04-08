@@ -199,6 +199,7 @@
             // 
             // txtBoxTUID
             // 
+            this.txtBoxTUID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBoxTUID.Location = new System.Drawing.Point(249, 133);
             this.txtBoxTUID.Name = "txtBoxTUID";
             this.txtBoxTUID.Size = new System.Drawing.Size(100, 20);
