@@ -18,7 +18,7 @@ namespace TempleCourseHelper
     {
         Dictionary<int, CourseDetails> CourseSchedule = new Dictionary<int, CourseDetails>();
         CourseDetails courseDetails = new CourseDetails();
-        String CoursicleURL = "https://www.coursicle.com/temple/", RateMyProfURL = "";
+        String CoursicleURL = "https://www.coursicle.com/temple/";
 
         public Dictionary<int, CourseDetails> searchCatalog(String[]courseNumbers)
         {
@@ -80,6 +80,20 @@ namespace TempleCourseHelper
 
             driver.Close();
             return CourseSchedule;
+        }
+
+        public void setupDBConnection()
+        {
+            //Setup DB connection
+        }
+        public void setDBData()
+        {
+            //Add code to set data in DB
+        }
+        public CourseDetails getDBData()
+        {
+            //Add code to set each attribute of courseDetails from DB
+            return courseDetails;
         }
     }
 }

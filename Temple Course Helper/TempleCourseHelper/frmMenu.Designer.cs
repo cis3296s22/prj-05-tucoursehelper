@@ -45,6 +45,10 @@
             this.btnEnterID = new System.Windows.Forms.Button();
             this.txtBoxTUID = new System.Windows.Forms.TextBox();
             this.lblTUID = new System.Windows.Forms.Label();
+            this.cbCourse1 = new System.Windows.Forms.ComboBox();
+            this.cbCourse2 = new System.Windows.Forms.ComboBox();
+            this.cbCourse3 = new System.Windows.Forms.ComboBox();
+            this.cbCourse4 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblCourse1
@@ -107,7 +111,7 @@
             // 
             this.lblResults.AutoSize = true;
             this.lblResults.Enabled = false;
-            this.lblResults.Location = new System.Drawing.Point(255, 36);
+            this.lblResults.Location = new System.Drawing.Point(384, 33);
             this.lblResults.Name = "lblResults";
             this.lblResults.Size = new System.Drawing.Size(45, 13);
             this.lblResults.TabIndex = 4;
@@ -189,7 +193,7 @@
             // 
             // btnEnterID
             // 
-            this.btnEnterID.Location = new System.Drawing.Point(258, 159);
+            this.btnEnterID.Location = new System.Drawing.Point(354, 159);
             this.btnEnterID.Name = "btnEnterID";
             this.btnEnterID.Size = new System.Drawing.Size(75, 24);
             this.btnEnterID.TabIndex = 13;
@@ -200,7 +204,7 @@
             // txtBoxTUID
             // 
             this.txtBoxTUID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxTUID.Location = new System.Drawing.Point(249, 133);
+            this.txtBoxTUID.Location = new System.Drawing.Point(345, 133);
             this.txtBoxTUID.Name = "txtBoxTUID";
             this.txtBoxTUID.Size = new System.Drawing.Size(100, 20);
             this.txtBoxTUID.TabIndex = 14;
@@ -208,18 +212,63 @@
             // lblTUID
             // 
             this.lblTUID.AutoSize = true;
-            this.lblTUID.Location = new System.Drawing.Point(169, 136);
+            this.lblTUID.Location = new System.Drawing.Point(265, 136);
             this.lblTUID.Name = "lblTUID";
             this.lblTUID.Size = new System.Drawing.Size(64, 13);
             this.lblTUID.TabIndex = 15;
             this.lblTUID.Text = "Enter TUID:";
+            // 
+            // cbCourse1
+            // 
+            this.cbCourse1.FormattingEnabled = true;
+            this.cbCourse1.Items.AddRange(new object[] {
+            "ACCT",
+            "ART",
+            "CHEM",
+            "CIS"});
+            this.cbCourse1.Location = new System.Drawing.Point(229, 30);
+            this.cbCourse1.Name = "cbCourse1";
+            this.cbCourse1.Size = new System.Drawing.Size(78, 21);
+            this.cbCourse1.TabIndex = 16;
+            this.cbCourse1.Visible = false;
+            // 
+            // cbCourse2
+            // 
+            this.cbCourse2.FormattingEnabled = true;
+            this.cbCourse2.Location = new System.Drawing.Point(229, 72);
+            this.cbCourse2.Name = "cbCourse2";
+            this.cbCourse2.Size = new System.Drawing.Size(78, 21);
+            this.cbCourse2.TabIndex = 17;
+            this.cbCourse2.Visible = false;
+            // 
+            // cbCourse3
+            // 
+            this.cbCourse3.FormattingEnabled = true;
+            this.cbCourse3.Location = new System.Drawing.Point(229, 114);
+            this.cbCourse3.Name = "cbCourse3";
+            this.cbCourse3.Size = new System.Drawing.Size(78, 21);
+            this.cbCourse3.TabIndex = 18;
+            this.cbCourse3.Visible = false;
+            // 
+            // cbCourse4
+            // 
+            this.cbCourse4.FormattingEnabled = true;
+            this.cbCourse4.Location = new System.Drawing.Point(229, 156);
+            this.cbCourse4.Name = "cbCourse4";
+            this.cbCourse4.Size = new System.Drawing.Size(78, 21);
+            this.cbCourse4.TabIndex = 19;
+            this.cbCourse4.Visible = false;
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(558, 358);
+            this.ClientSize = new System.Drawing.Size(777, 373);
+            this.Controls.Add(this.cbCourse4);
+            this.Controls.Add(this.cbCourse3);
+            this.Controls.Add(this.cbCourse2);
+            this.Controls.Add(this.cbCourse1);
             this.Controls.Add(this.lblTUID);
             this.Controls.Add(this.txtBoxTUID);
             this.Controls.Add(this.btnEnterID);
@@ -263,6 +312,10 @@
         private System.Windows.Forms.Button btnEnterID;
         private System.Windows.Forms.TextBox txtBoxTUID;
         private System.Windows.Forms.Label lblTUID;
+        private System.Windows.Forms.ComboBox cbCourse1;
+        private System.Windows.Forms.ComboBox cbCourse2;
+        private System.Windows.Forms.ComboBox cbCourse3;
+        private System.Windows.Forms.ComboBox cbCourse4;
     }
 }
 

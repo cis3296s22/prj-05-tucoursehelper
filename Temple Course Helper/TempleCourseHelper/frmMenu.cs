@@ -55,6 +55,7 @@ namespace TempleCourseHelper
                     txtBoxCourse4.Text
                 };
                 Course = worker.searchCatalog(courseNumbers);
+
             }
         }
         private void btnSend_Click(object sender, EventArgs e)
@@ -114,7 +115,7 @@ namespace TempleCourseHelper
 
             //checks if input is valid
             for (int i =0; i < IDChecker.Length; i++){
-                if(char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)
+                if(char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
                 {
                     //Disable and enables appropriate controls
                     disableControl(txtBoxTUID);
@@ -133,6 +134,10 @@ namespace TempleCourseHelper
                     enableControl(txtBoxCourse3);
                     enableControl(txtBoxCourse4);
                     enableControl(txtBoxEmail);
+                    enableControl(cbCourse1);
+                    enableControl(cbCourse2);
+                    enableControl(cbCourse3);
+                    enableControl(cbCourse4);
                 }
                 else
                 {
