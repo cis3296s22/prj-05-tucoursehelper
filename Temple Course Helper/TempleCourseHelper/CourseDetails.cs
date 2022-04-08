@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace TempleCourseHelper
 {
     internal class CourseDetails
     {
-        string courseName, courseDescription, courseProfessor, professorRating, courseTime;
+        string courseName, courseDescription, courseProfessor, professorRating, courseTime, courseSection, courseDays, courseCredits; 
 
         public string getCourseName()
         {
@@ -30,27 +31,51 @@ namespace TempleCourseHelper
         {
             return courseTime;
         }
+        public string getCourseSection()
+        {
+            return courseSection;
+        }
+        public string getCourseDays()
+        {
+            return courseDays;
+        }
+        public string getCourseCredit()
+        {
+            return courseCredits;
+        }
 
 
         public void setCourseName(String name)
         {
             this.courseName = name;
         }
-        public void setcourseDescription(String desc)
+        public void setCourseDescription(String desc)
         {
-            this.courseDescription = desc;
+            this.courseDescription = Regex.Replace(desc, @"Description: ","");
         }
-        public void setcourseProfessor(String prof)
+        public void setCourseProfessor(String prof)
         {
             this.courseProfessor = prof;
         }
-        public void setprofessorRating(String profRating)
+        public void setProfessorRating(String profRating)
         {
             this.professorRating = profRating;
         }
-        public void setcourseTime(String time)
+        public void setCourseTime(String time)
         {
             this.courseTime = time;
+        }
+        public void setCourseSection(String section)
+        {
+            this.courseSection = section;
+        }
+        public void setCourseDays(String days)
+        {
+            this.courseDays = days;
+        }
+        public void setCourseCredit(string credit)
+        {
+            this.courseCredits = Regex.Replace(credit, @"Credits: ","");   
         }
 
     }

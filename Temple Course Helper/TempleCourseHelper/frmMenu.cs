@@ -20,7 +20,7 @@ namespace TempleCourseHelper
         //Worker Class
         Worker worker = new Worker();
         //Dictionary for course details
-        Dictionary<string, CourseDetails> Course = new Dictionary<string, CourseDetails>();
+        Dictionary<int, CourseDetails> Course = new Dictionary<int, CourseDetails>();
 
         string[] emailList = new string[] {
             "@gmail.com",
@@ -29,7 +29,9 @@ namespace TempleCourseHelper
             "@hotmail.com",
             "@outlook.com",
             "@aol.com",
-            "@msn.com"};
+            "@msn.com"
+        };
+
 
         public frmMenu()
         {
@@ -45,7 +47,14 @@ namespace TempleCourseHelper
             }
             else
             {
-                Course = worker.searchCatalog();
+                string[] courseNumbers = new string[]
+                {
+                    txtBoxCourse1.Text,
+                    txtBoxCourse2.Text,
+                    txtBoxCourse3.Text,
+                    txtBoxCourse4.Text
+                };
+                Course = worker.searchCatalog(courseNumbers);
             }
         }
         private void btnSend_Click(object sender, EventArgs e)
