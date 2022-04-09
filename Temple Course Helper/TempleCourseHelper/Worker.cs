@@ -19,7 +19,7 @@ namespace TempleCourseHelper
         Dictionary<int, CourseDetails> CourseSchedule = new Dictionary<int, CourseDetails>();
         String CoursicleURL = "https://www.coursicle.com/temple/";
 
-        public Dictionary<int, CourseDetails> searchCatalog(String[]courseNumbers)
+        public Dictionary<int, CourseDetails> searchCatalog(String[] courseNumbers)
         {
             //Open Chrome "headless" or not visible to user
             //var chromeOptions = new ChromeOptions();
@@ -38,9 +38,10 @@ namespace TempleCourseHelper
             {
                 CourseDetails courseDetails = new CourseDetails();
                 //Searches course
-                driver.FindElement(By.Id("searchBox")).SendKeys("CIS "+courseNumbers[i]);
+
+                driver.FindElement(By.Id("searchBox")).SendKeys("CIS " + courseNumbers[i]);
                 Thread.Sleep(300);
-                
+
                 //Selects result                                //This div iterates\/
                 driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div[1]/div[9]/div[3]")).Click();
 
@@ -70,23 +71,22 @@ namespace TempleCourseHelper
                 driver.FindElement(By.CssSelector("#descriptionModal > div > div > div.modal-body > div.centerButton > button")).Click();
                 Thread.Sleep(1);
 
-                //Dictionary<string, CourseDetails> CourseSchedule = new Dictionary<string, CourseDetails>();
-                CourseSchedule.Add((i+1), courseDetails);
-                Console.WriteLine(CourseSchedule);
+                CourseSchedule.Add((i + 1), courseDetails);
                 driver.FindElement(By.Id("searchBox")).Clear();
             }
 
-            //CourseSchedule.Add(1, courseDetails);
-            //CourseSchedule.Add(2, courseDetails);
-        
+            //Call Setup DB connection
+
+            //Call setDBData
+
             driver.Close();
             return CourseSchedule;
         }
 
-        
-            //Call Setup DB connection
-
-            //Call 
-   
+        public Dictionary<int, CourseDetails> getUserInfo(String ID)
+        {
+            //Fill CourseSchedule with previous search of the user
+            return CourseSchedule;
+        }
     }
 }
