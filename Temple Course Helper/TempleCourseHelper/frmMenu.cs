@@ -20,7 +20,9 @@ namespace TempleCourseHelper
         //Worker Class
         Worker worker = new Worker();
         //Dictionary for course details
-        Dictionary<int, CourseDetails> Course = new Dictionary<int, CourseDetails>();
+        Dictionary<int, CourseDetails> CourseSchedule = new Dictionary<int, CourseDetails>();
+        String searchResult = "",ratingResult = "";
+        int i = 0;
 
         string[] emailList = new string[] {
             "@gmail.com",
@@ -54,7 +56,33 @@ namespace TempleCourseHelper
                     txtBoxCourse3.Text,
                     txtBoxCourse4.Text
                 };
-                Course = worker.searchCatalog(courseNumbers);
+                CourseSchedule = worker.searchCatalog(courseNumbers);
+
+                foreach (KeyValuePair<int, CourseDetails> kv in CourseSchedule)
+                {
+                    if (kv.Value.getProfessorRating() == null)
+                    {
+                        ratingResult = "No Rating";
+                        searchResult += "\n________________________________________________"
+                                     + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
+                                     + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
+                                     + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
+                                     + " Credits: "+ kv.Value.getCourseCredit() + "\n"
+                                     + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
+                    }
+                    else
+                    {
+                        ratingResult = kv.Value.getProfessorRating() + "/100";
+                        searchResult += "\n________________________________________________"
+                                     + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
+                                     + "Days: " + kv.Value.getCourseDays() + " Times: " +kv.Value.getCourseTime() + "\n"
+                                     + "Professor: "+kv.Value.getCourseProfessor() + " Rating: " + ratingResult
+                                     + " Credits: " + kv.Value.getCourseCredit() + "\n"
+                                     + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
+                    }
+                    i++;
+                }
+                lblResults.Text = searchResult;
             }
         }
         private void btnSend_Click(object sender, EventArgs e)
@@ -106,16 +134,16 @@ namespace TempleCourseHelper
 
         private void btnEnterID_Click(object sender, EventArgs e)
         {
-            //Code for database
-
-
             //replaces all whitespaces \s with empty strings
             String IDChecker = Regex.Replace(txtBoxTUID.Text, @"\s", "");
 
             //checks if input is valid
             for (int i =0; i < IDChecker.Length; i++){
-                if(char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)
+                if(char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
                 {
+                    //Code for database
+
+
                     //Disable and enables appropriate controls
                     disableControl(txtBoxTUID);
                     disableControl(btnEnterID);
@@ -133,6 +161,10 @@ namespace TempleCourseHelper
                     enableControl(txtBoxCourse3);
                     enableControl(txtBoxCourse4);
                     enableControl(txtBoxEmail);
+                    enableControl(cbCourse1);
+                    enableControl(cbCourse2);
+                    enableControl(cbCourse3);
+                    enableControl(cbCourse4);
                 }
                 else
                 {
