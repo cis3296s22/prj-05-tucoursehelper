@@ -56,7 +56,16 @@ namespace TempleCourseHelper
                     txtBoxCourse3.Text,
                     txtBoxCourse4.Text
                 };
-                CourseSchedule = worker.searchCatalog(courseNumbers);
+                string[] courseLetters = new string[]
+               {
+                    cbCourse1.Text,
+                    cbCourse2.Text,
+                    cbCourse3.Text,
+                    cbCourse4.Text
+               };
+
+                CourseSchedule = worker.searchCatalog(courseLetters, courseNumbers);
+                
 
                 foreach (KeyValuePair<int, CourseDetails> kv in CourseSchedule)
                 {

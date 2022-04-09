@@ -19,7 +19,7 @@ namespace TempleCourseHelper
         Dictionary<int, CourseDetails> CourseSchedule = new Dictionary<int, CourseDetails>();
         String CoursicleURL = "https://www.coursicle.com/temple/";
 
-        public Dictionary<int, CourseDetails> searchCatalog(String[] courseNumbers)
+        public Dictionary<int, CourseDetails> searchCatalog(String[] courseLetters,String[] courseNumbers)
         {
             //Open Chrome "headless" or not visible to user
             //var chromeOptions = new ChromeOptions();
@@ -39,7 +39,7 @@ namespace TempleCourseHelper
                 CourseDetails courseDetails = new CourseDetails();
                 //Searches course
 
-                driver.FindElement(By.Id("searchBox")).SendKeys("CIS " + courseNumbers[i]);
+                driver.FindElement(By.Id("searchBox")).SendKeys( courseLetters[i] + " " + courseNumbers[i]);
                 Thread.Sleep(300);
 
                 //Selects result                                //This div iterates\/

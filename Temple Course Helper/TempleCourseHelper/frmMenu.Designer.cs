@@ -224,8 +224,23 @@
             this.cbCourse1.Items.AddRange(new object[] {
             "ACCT",
             "ART",
+            "BIOL",
             "CHEM",
-            "CIS"});
+            "CEE",
+            "CLA",
+            "SCTC",
+            "CIS",
+            "CJ",
+            "DANC",
+            "ENGR",
+            "ENG",
+            "FIN",
+            "HIST",
+            "MATH",
+            "NURS",
+            "PHYS",
+            "SOC",
+            "SPAN"});
             this.cbCourse1.Location = new System.Drawing.Point(229, 30);
             this.cbCourse1.Name = "cbCourse1";
             this.cbCourse1.Size = new System.Drawing.Size(78, 21);
@@ -235,6 +250,26 @@
             // cbCourse2
             // 
             this.cbCourse2.FormattingEnabled = true;
+            this.cbCourse2.Items.AddRange(new object[] {
+            "ACCT",
+            "ART",
+            "BIOL",
+            "CHEM",
+            "CEE",
+            "CLA",
+            "SCTC",
+            "CIS",
+            "CJ",
+            "DANC",
+            "ENGR",
+            "ENG",
+            "FIN",
+            "HIST",
+            "MATH",
+            "NURS",
+            "PHYS",
+            "SOC",
+            "SPAN"});
             this.cbCourse2.Location = new System.Drawing.Point(229, 72);
             this.cbCourse2.Name = "cbCourse2";
             this.cbCourse2.Size = new System.Drawing.Size(78, 21);
@@ -244,6 +279,26 @@
             // cbCourse3
             // 
             this.cbCourse3.FormattingEnabled = true;
+            this.cbCourse3.Items.AddRange(new object[] {
+            "ACCT",
+            "ART",
+            "BIOL",
+            "CHEM",
+            "CEE",
+            "CLA",
+            "SCTC",
+            "CIS",
+            "CJ",
+            "DANC",
+            "ENGR",
+            "ENG",
+            "FIN",
+            "HIST",
+            "MATH",
+            "NURS",
+            "PHYS",
+            "SOC",
+            "SPAN"});
             this.cbCourse3.Location = new System.Drawing.Point(229, 114);
             this.cbCourse3.Name = "cbCourse3";
             this.cbCourse3.Size = new System.Drawing.Size(78, 21);
@@ -253,6 +308,26 @@
             // cbCourse4
             // 
             this.cbCourse4.FormattingEnabled = true;
+            this.cbCourse4.Items.AddRange(new object[] {
+            "ACCT",
+            "ART",
+            "BIOL",
+            "CHEM",
+            "CEE",
+            "CLA",
+            "SCTC",
+            "CIS",
+            "CJ",
+            "DANC",
+            "ENGR",
+            "ENG",
+            "FIN",
+            "HIST",
+            "MATH",
+            "NURS",
+            "PHYS",
+            "SOC",
+            "SPAN"});
             this.cbCourse4.Location = new System.Drawing.Point(229, 156);
             this.cbCourse4.Name = "cbCourse4";
             this.cbCourse4.Size = new System.Drawing.Size(78, 21);
