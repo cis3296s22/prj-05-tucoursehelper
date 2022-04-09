@@ -9,11 +9,15 @@ namespace TempleCourseHelper
 {
     internal class CourseDetails
     {
-        string courseName, courseDescription, courseProfessor, professorRating, courseTime, courseSection, courseDays, courseCredits; 
+        string courseName, courseCode, courseDescription, courseProfessor, professorRating, courseTime, courseSection, courseDays, courseCredits; 
 
         public string getCourseName()
         {
             return courseName;
+        }
+        public string getCourseCode()
+        {
+            return courseCode;
         }
         public string getCourseDescription()
         {
@@ -49,6 +53,10 @@ namespace TempleCourseHelper
         {
             this.courseName = name;
         }
+        public void setCourseCode(String code)
+        {
+            this.courseCode = code;
+        }
         public void setCourseDescription(String desc)
         {
             this.courseDescription = Regex.Replace(desc, @"Description: ","");
@@ -63,7 +71,7 @@ namespace TempleCourseHelper
         }
         public void setCourseTime(String time)
         {
-            this.courseTime = time;
+            this.courseTime = Regex.Replace(time, @"\r\n", ""); ;
         }
         public void setCourseSection(String section)
         {

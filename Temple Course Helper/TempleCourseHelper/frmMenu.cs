@@ -60,23 +60,13 @@ namespace TempleCourseHelper
 
                 foreach (KeyValuePair<int, CourseDetails> kv in CourseSchedule)
                 {
-                    if (kv.Value.getProfessorRating() == null)
-                    {
-                        ratingResult = "No Rating";
-                        searchResult += "\n________________________________________________"
-                                     + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
-                                     + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
-                                     + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
-                                     + " Credits: "+ kv.Value.getCourseCredit() + "\n"
-                                     + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
-                    }
-                    else
+                    if (kv.Value.getProfessorRating() != "No Rating")
                     {
                         ratingResult = kv.Value.getProfessorRating() + "/100";
                         searchResult += "\n________________________________________________"
-                                     + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
-                                     + "Days: " + kv.Value.getCourseDays() + " Times: " +kv.Value.getCourseTime() + "\n"
-                                     + "Professor: "+kv.Value.getCourseProfessor() + " Rating: " + ratingResult
+                                     + "\n" + kv.Value.getCourseName() + " " + kv.Value.getCourseCode() + "-" + kv.Value.getCourseSection() + "\n"
+                                     + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
+                                     + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
                                      + " Credits: " + kv.Value.getCourseCredit() + "\n"
                                      + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
                     }
@@ -142,7 +132,7 @@ namespace TempleCourseHelper
                 if(char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
                 {
                     //Code for database
-
+                    worker.setTUID(IDChecker);
 
                     //Disable and enables appropriate controls
                     disableControl(txtBoxTUID);
