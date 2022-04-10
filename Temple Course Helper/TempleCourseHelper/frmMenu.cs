@@ -58,25 +58,26 @@ namespace TempleCourseHelper
                 };
                 string[] courseLetters = new string[]
                {
-                    cbCourse1.Text,
-                    cbCourse2.Text,
-                    cbCourse3.Text,
-                    cbCourse4.Text
+                    cbCourse1.Text.ToUpper(),
+                    cbCourse2.Text.ToUpper(),
+                    cbCourse3.Text.ToUpper(),
+                    cbCourse4.Text.ToUpper()
                };
 
                 CourseSchedule = worker.searchCatalog(courseLetters, courseNumbers);
-                
 
+              
                 foreach (KeyValuePair<int, CourseDetails> kv in CourseSchedule)
                 {
                     if (kv.Value.getProfessorRating() == null)
                     {
+                      
                         ratingResult = "No Rating";
                         searchResult += "\n________________________________________________"
                                      + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
                                      + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
                                      + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
-                                     + " Credits: "+ kv.Value.getCourseCredit() + "\n"
+                                     + " Credits: " + kv.Value.getCourseCredit() + "\n"
                                      + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
                     }
                     else
@@ -84,8 +85,8 @@ namespace TempleCourseHelper
                         ratingResult = kv.Value.getProfessorRating() + "/100";
                         searchResult += "\n________________________________________________"
                                      + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
-                                     + "Days: " + kv.Value.getCourseDays() + " Times: " +kv.Value.getCourseTime() + "\n"
-                                     + "Professor: "+kv.Value.getCourseProfessor() + " Rating: " + ratingResult
+                                     + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
+                                     + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
                                      + " Credits: " + kv.Value.getCourseCredit() + "\n"
                                      + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
                     }

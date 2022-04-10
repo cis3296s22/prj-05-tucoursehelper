@@ -52,6 +52,7 @@ namespace TempleCourseHelper
         public void setCourseDescription(String desc)
         {
             this.courseDescription = Regex.Replace(desc, @"Description: ","");
+
         }
         public void setCourseProfessor(String prof)
         {

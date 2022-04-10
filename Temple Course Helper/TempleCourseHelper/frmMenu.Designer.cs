@@ -111,7 +111,7 @@
             // 
             this.lblResults.AutoSize = true;
             this.lblResults.Enabled = false;
-            this.lblResults.Location = new System.Drawing.Point(400, 9);
+            this.lblResults.Location = new System.Drawing.Point(12, 349);
             this.lblResults.Name = "lblResults";
             this.lblResults.Size = new System.Drawing.Size(45, 13);
             this.lblResults.TabIndex = 4;
@@ -339,7 +339,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(777, 373);
+            this.ClientSize = new System.Drawing.Size(691, 651);
             this.Controls.Add(this.cbCourse4);
             this.Controls.Add(this.cbCourse3);
             this.Controls.Add(this.cbCourse2);
