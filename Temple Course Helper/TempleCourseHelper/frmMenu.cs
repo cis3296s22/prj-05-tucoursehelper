@@ -60,16 +60,18 @@ namespace TempleCourseHelper
 
                 foreach (KeyValuePair<int, CourseDetails> kv in CourseSchedule)
                 {
-                    if (kv.Value.getProfessorRating() != "No Rating")
+                    ratingResult = kv.Value.getProfessorRating();
+                    if (ratingResult != "No Rating")
                     {
-                        ratingResult = kv.Value.getProfessorRating() + "/100";
-                        searchResult += "\n________________________________________________"
+                        ratingResult = ratingResult + "/100";
+                    }
+                    searchResult += "\n________________________________________________"
                                      + "\n" + kv.Value.getCourseName() + " " + kv.Value.getCourseCode() + "-" + kv.Value.getCourseSection() + "\n"
                                      + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
                                      + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
                                      + " Credits: " + kv.Value.getCourseCredit() + "\n"
                                      + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
-                    }
+
                     i++;
                 }
                 lblResults.Text = searchResult;
