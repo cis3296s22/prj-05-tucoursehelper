@@ -111,7 +111,7 @@
             // 
             this.lblResults.AutoSize = true;
             this.lblResults.Enabled = false;
-            this.lblResults.Location = new System.Drawing.Point(400, 9);
+            this.lblResults.Location = new System.Drawing.Point(351, 9);
             this.lblResults.Name = "lblResults";
             this.lblResults.Size = new System.Drawing.Size(45, 13);
             this.lblResults.TabIndex = 4;
@@ -193,7 +193,7 @@
             // 
             // btnEnterID
             // 
-            this.btnEnterID.Location = new System.Drawing.Point(354, 159);
+            this.btnEnterID.Location = new System.Drawing.Point(440, 297);
             this.btnEnterID.Name = "btnEnterID";
             this.btnEnterID.Size = new System.Drawing.Size(75, 24);
             this.btnEnterID.TabIndex = 13;
@@ -204,7 +204,7 @@
             // txtBoxTUID
             // 
             this.txtBoxTUID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxTUID.Location = new System.Drawing.Point(345, 133);
+            this.txtBoxTUID.Location = new System.Drawing.Point(431, 271);
             this.txtBoxTUID.Name = "txtBoxTUID";
             this.txtBoxTUID.Size = new System.Drawing.Size(100, 20);
             this.txtBoxTUID.TabIndex = 14;
@@ -212,7 +212,7 @@
             // lblTUID
             // 
             this.lblTUID.AutoSize = true;
-            this.lblTUID.Location = new System.Drawing.Point(265, 136);
+            this.lblTUID.Location = new System.Drawing.Point(351, 274);
             this.lblTUID.Name = "lblTUID";
             this.lblTUID.Size = new System.Drawing.Size(64, 13);
             this.lblTUID.TabIndex = 15;
@@ -224,8 +224,23 @@
             this.cbCourse1.Items.AddRange(new object[] {
             "ACCT",
             "ART",
+            "BIOL",
             "CHEM",
-            "CIS"});
+            "CEE",
+            "CLA",
+            "SCTC",
+            "CIS",
+            "CJ",
+            "DANC",
+            "ENGR",
+            "ENG",
+            "FIN",
+            "HIST",
+            "MATH",
+            "NURS",
+            "PHYS",
+            "SOC",
+            "SPAN"});
             this.cbCourse1.Location = new System.Drawing.Point(229, 30);
             this.cbCourse1.Name = "cbCourse1";
             this.cbCourse1.Size = new System.Drawing.Size(78, 21);
@@ -235,6 +250,26 @@
             // cbCourse2
             // 
             this.cbCourse2.FormattingEnabled = true;
+            this.cbCourse2.Items.AddRange(new object[] {
+            "ACCT",
+            "ART",
+            "BIOL",
+            "CHEM",
+            "CEE",
+            "CLA",
+            "SCTC",
+            "CIS",
+            "CJ",
+            "DANC",
+            "ENGR",
+            "ENG",
+            "FIN",
+            "HIST",
+            "MATH",
+            "NURS",
+            "PHYS",
+            "SOC",
+            "SPAN"});
             this.cbCourse2.Location = new System.Drawing.Point(229, 72);
             this.cbCourse2.Name = "cbCourse2";
             this.cbCourse2.Size = new System.Drawing.Size(78, 21);
@@ -244,6 +279,26 @@
             // cbCourse3
             // 
             this.cbCourse3.FormattingEnabled = true;
+            this.cbCourse3.Items.AddRange(new object[] {
+            "ACCT",
+            "ART",
+            "BIOL",
+            "CHEM",
+            "CEE",
+            "CLA",
+            "SCTC",
+            "CIS",
+            "CJ",
+            "DANC",
+            "ENGR",
+            "ENG",
+            "FIN",
+            "HIST",
+            "MATH",
+            "NURS",
+            "PHYS",
+            "SOC",
+            "SPAN"});
             this.cbCourse3.Location = new System.Drawing.Point(229, 114);
             this.cbCourse3.Name = "cbCourse3";
             this.cbCourse3.Size = new System.Drawing.Size(78, 21);
@@ -253,6 +308,26 @@
             // cbCourse4
             // 
             this.cbCourse4.FormattingEnabled = true;
+            this.cbCourse4.Items.AddRange(new object[] {
+            "ACCT",
+            "ART",
+            "BIOL",
+            "CHEM",
+            "CEE",
+            "CLA",
+            "SCTC",
+            "CIS",
+            "CJ",
+            "DANC",
+            "ENGR",
+            "ENG",
+            "FIN",
+            "HIST",
+            "MATH",
+            "NURS",
+            "PHYS",
+            "SOC",
+            "SPAN"});
             this.cbCourse4.Location = new System.Drawing.Point(229, 156);
             this.cbCourse4.Name = "cbCourse4";
             this.cbCourse4.Size = new System.Drawing.Size(78, 21);
@@ -264,7 +339,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(777, 373);
+            this.ClientSize = new System.Drawing.Size(921, 784);
             this.Controls.Add(this.cbCourse4);
             this.Controls.Add(this.cbCourse3);
             this.Controls.Add(this.cbCourse2);
