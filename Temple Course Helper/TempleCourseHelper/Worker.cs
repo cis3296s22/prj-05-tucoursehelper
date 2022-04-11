@@ -16,8 +16,10 @@ namespace TempleCourseHelper
 {
     internal class Worker
     {
+        DBConnector DB = new DBConnector();
         Dictionary<int, CourseDetails> CourseSchedule = new Dictionary<int, CourseDetails>();
         String CoursicleURL = "https://www.coursicle.com/temple/";
+        String TUID = "";
 
         public Dictionary<int, CourseDetails> searchCatalog(String[] courseLetters,String[] courseNumbers)
         {
@@ -27,18 +29,23 @@ namespace TempleCourseHelper
 
             //Add chrom exe location
             //driver = new ChromeDriver(chromeOptions);
-            IWebDriver driver = new ChromeDriver(@"../../" + "/Driver/");
+            IWebDriver driver = new ChromeDriver(@"../../" + "/Resources/");
 
             //Goes to Coursicle
             driver.Navigate().GoToUrl(CoursicleURL);
-            Thread.Sleep(3);
+            Thread.Sleep(50);
+
+            //Clears any contents in CourseSchedule
+            CourseSchedule.Clear();
 
             //Searches 4 classes
             for (int i = 0; i < courseNumbers.Length; i++)
             {
                 CourseDetails courseDetails = new CourseDetails();
-                //Searches course
+                //Sets course number
+                courseDetails.setCourseCode(courseNumbers[i]);
 
+                //Searches course
                 driver.FindElement(By.Id("searchBox")).SendKeys( courseLetters[i] + " " + courseNumbers[i]);
                 Thread.Sleep(500);
 
@@ -56,9 +63,19 @@ namespace TempleCourseHelper
                 }
                 catch (Exception NoSuchElementException)
                 {
-                    courseDetails.setProfessorRating(null);
+                    courseDetails.setProfessorRating("No Rating");
                 }
-                //courseDetails.setCourseTime(driver.FindElement(By.ClassName("")).Text);//Add time here
+                //Tries to get time, some classes provide two time creating two different element id's
+                try
+                {
+                    courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child(1) > div.wrap > div.card.back > div.courseNameBack > div.time.twoTimes")).Text);
+                }
+                catch (Exception NoSuchElementException)
+                {
+                    courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child(1) > div.wrap > div.card.back > div.courseNameBack > div.time")).Text);
+                }
+
+
                 courseDetails.setCourseDays(driver.FindElement(By.ClassName("days")).Text);
                 //Click small info circle
                 driver.FindElement(By.CssSelector("#cardContainer > div:nth-child(1) > div.wrap > div.card.back > div.infoIcon > i")).Click();
@@ -76,8 +93,10 @@ namespace TempleCourseHelper
             }
 
             //Call Setup DB connection
+            DB.setupConnection();
 
-            //Call setDBData
+            //adding data to database
+            DB.AddDataToDB(TUID,CourseSchedule);
 
             driver.Close();
             return CourseSchedule;
@@ -87,6 +106,10 @@ namespace TempleCourseHelper
         {
             //Fill CourseSchedule with previous search of the user
             return CourseSchedule;
+        }
+        public void setTUID(String TUID)
+        {
+            this.TUID = TUID;
         }
     }
 }

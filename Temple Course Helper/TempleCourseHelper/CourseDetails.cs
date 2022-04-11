@@ -9,11 +9,15 @@ namespace TempleCourseHelper
 {
     internal class CourseDetails
     {
-        string courseName, courseDescription, courseProfessor, professorRating, courseTime, courseSection, courseDays, courseCredits; 
+        string courseName, courseCode, courseDescription, courseProfessor, professorRating, courseTime, courseSection, courseDays, courseCredits; 
 
         public string getCourseName()
         {
             return courseName;
+        }
+        public string getCourseCode()
+        {
+            return courseCode;
         }
         public string getCourseDescription()
         {
@@ -49,6 +53,10 @@ namespace TempleCourseHelper
         {
             this.courseName = name;
         }
+        public void setCourseCode(String code)
+        {
+            this.courseCode = code;
+        }
         public void setCourseDescription(String desc)
         {
             for (int i = 1; i < desc.Length; i++)
@@ -59,10 +67,18 @@ namespace TempleCourseHelper
                     //The code will search for the next white space
                     while (true)
                     {
-                        if (Char.IsWhiteSpace(desc[i]))
+                        //Makes sure the i doesn't go out of bounds
+                        try
                         {
-                            //It will be replaced with a "\n"
-                            desc = desc.Insert(i, "\n");
+                            if (Char.IsWhiteSpace(desc[i]))
+                            {
+                                //It will be replaced with a "\n"
+                                desc = desc.Insert(i, "\n");
+                                break;
+                            }
+                        }
+                        catch (Exception IndexOutOfRangeException)
+                        {
                             break;
                         }
                         i++;
@@ -81,7 +97,7 @@ namespace TempleCourseHelper
         }
         public void setCourseTime(String time)
         {
-            this.courseTime = time;
+            this.courseTime = Regex.Replace(time, @"\r\n", ""); ;
         }
         public void setCourseSection(String section)
         {
