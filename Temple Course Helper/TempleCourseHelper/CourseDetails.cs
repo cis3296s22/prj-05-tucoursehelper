@@ -51,8 +51,22 @@ namespace TempleCourseHelper
         }
         public void setCourseDescription(String desc)
         {
+            for (int i = 1; i < desc.Length; i++)
+            {
+                if (i % 100 == 0)
+                {
+                    while (true)
+                    {
+                        if (Char.IsWhiteSpace(desc[i]))
+                        {
+                            desc = desc.Insert(i, "\n");
+                            break;
+                        }
+                        i++;
+                    }
+                }
+            }
             this.courseDescription = Regex.Replace(desc, @"Description: ","");
-
         }
         public void setCourseProfessor(String prof)
         {

@@ -73,22 +73,20 @@ namespace TempleCourseHelper
                     {
                       
                         ratingResult = "No Rating";
-                        searchResult += "\n________________________________________________"
+                        searchResult += "\n______________________________________________________________________________________________"
                                      + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
                                      + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
-                                     + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
-                                     + " Credits: " + kv.Value.getCourseCredit() + "\n"
-                                     + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
+                                     + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult + " Credits: " + kv.Value.getCourseCredit() + "\n"
+                                     + "Description: "+kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
                     }
                     else
                     {
                         ratingResult = kv.Value.getProfessorRating() + "/100";
-                        searchResult += "\n________________________________________________"
+                        searchResult += "\n______________________________________________________________________________________________"
                                      + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
                                      + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
-                                     + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
-                                     + " Credits: " + kv.Value.getCourseCredit() + "\n"
-                                     + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
+                                     + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult + " Credits: " + kv.Value.getCourseCredit() + "\n"
+                                     + "Description: "+kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
                     }
                     i++;
                 }
