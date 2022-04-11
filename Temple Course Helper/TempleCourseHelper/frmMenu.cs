@@ -43,9 +43,9 @@ namespace TempleCourseHelper
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //Checks if all textboxes have a valid input
-            if (badInput(txtBoxCourse1)|| badInput(txtBoxCourse4) || badInput(txtBoxCourse3)|| badInput(txtBoxCourse2))
+            if (badInput(txtBoxCourse1)||badInput(txtBoxCourse2)||badInput(txtBoxCourse3)||badInput(txtBoxCourse4)||badInput(cbCourse1)||badInput(cbCourse2)||badInput(cbCourse3)||badInput(cbCourse4))
             {
-                MessageBox.Show("Either all boxes have not been filled\nOr the course number is invalid");
+                MessageBox.Show("Either all boxes have not been filled\n\tOr the entry is invalid");
             }
             else
             {
@@ -100,8 +100,8 @@ namespace TempleCourseHelper
         }
         private bool badInput(Control ctrl)
         {
-            //Will skip this if not txtBoxEmail
-            if (!ctrl.Name.Equals("txtBoxEmail"))
+            //Checks input for course codes
+            if (ctrl.Name.Equals("txtBoxCourse1") || ctrl.Name.Equals("txtBoxCourse2") || ctrl.Name.Equals("txtBoxCourse3") || ctrl.Name.Equals("txtBoxCourse4"))
             {
                 //Checks if the box is not empty and if the course code is 4 keys in length
                 if (ctrl.Text.Length == 4 && !ctrl.Text.Contains(" "))
@@ -109,7 +109,8 @@ namespace TempleCourseHelper
                     return false;
                 }
             }
-            else
+            //Checks input for email
+            else if (ctrl.Name.Equals("txtBoxEmail"))
             {
                 //Checks if the box is empty, is a valid email inbox or is less than 4 charecters meaning user cant write "@.com"
                 for (int i = 0; i < emailList.Length; i++)
@@ -118,6 +119,15 @@ namespace TempleCourseHelper
                     {
                         return false;
                     }
+                }
+            }
+            //Checks input for course letters
+            else
+            {
+                //Checks if the box is not empty and if the course code is 4 keys in length
+                if (ctrl.Text != "" && !ctrl.Text.Contains(" "))
+                {
+                    return false;
                 }
             }
             return true;
