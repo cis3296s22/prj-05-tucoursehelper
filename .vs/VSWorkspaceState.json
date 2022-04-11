@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Temple Course Helper",
+    "\\Temple Course Helper\\packages",
+    "\\Temple Course Helper\\TempleCourseHelper"
   ],
-  "SelectedNode": "\\C:\\Users\\jenru\\Source\\Repos\\prj-05-tucoursehelper",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\Temple Course Helper\\TempleCourseHelper\\Properties",
+  "PreviewInSolutionExplorer": true
 }

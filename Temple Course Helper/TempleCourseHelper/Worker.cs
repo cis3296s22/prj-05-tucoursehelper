@@ -107,9 +107,16 @@ namespace TempleCourseHelper
             //Fill CourseSchedule with previous search of the user
             return CourseSchedule;
         }
+        
         public void setTUID(String TUID)
         {
             this.TUID = TUID;
         }
+    
+        public async void email()
+        {
+           
+        }
+    
     }
 }
