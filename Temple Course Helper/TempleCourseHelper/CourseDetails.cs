@@ -67,10 +67,18 @@ namespace TempleCourseHelper
                     //The code will search for the next white space
                     while (true)
                     {
-                        if (Char.IsWhiteSpace(desc[i]))
+                        //Makes sure the i doesn't go out of bounds
+                        try
                         {
-                            //It will be replaced with a "\n"
-                            desc = desc.Insert(i, "\n");
+                            if (Char.IsWhiteSpace(desc[i]))
+                            {
+                                //It will be replaced with a "\n"
+                                desc = desc.Insert(i, "\n");
+                                break;
+                            }
+                        }
+                        catch (Exception IndexOutOfRangeException)
+                        {
                             break;
                         }
                         i++;
