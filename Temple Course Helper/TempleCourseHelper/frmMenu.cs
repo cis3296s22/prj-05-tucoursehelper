@@ -56,22 +56,25 @@ namespace TempleCourseHelper
                     txtBoxCourse3.Text,
                     txtBoxCourse4.Text
                 };
-                CourseSchedule = worker.searchCatalog(courseNumbers);
+                string[] courseLetters = new string[]
+               {
+                    cbCourse1.Text.ToUpper(),
+                    cbCourse2.Text.ToUpper(),
+                    cbCourse3.Text.ToUpper(),
+                    cbCourse4.Text.ToUpper()
+               };
 
+                CourseSchedule = worker.searchCatalog(courseLetters, courseNumbers);
+
+              
                 foreach (KeyValuePair<int, CourseDetails> kv in CourseSchedule)
                 {
                     ratingResult = kv.Value.getProfessorRating();
                     if (ratingResult != "No Rating")
                     {
-                        ratingResult = ratingResult + "/100";
+                        searchResult += "\n____________________________________________________________________________________________"
+                                     + kv.Value.getCourseDescription(); 
                     }
-                    searchResult += "\n________________________________________________"
-                                     + "\n" + kv.Value.getCourseName() + " " + kv.Value.getCourseCode() + "-" + kv.Value.getCourseSection() + "\n"
-                                     + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
-                                     + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
-                                     + " Credits: " + kv.Value.getCourseCredit() + "\n"
-                                     + kv.Value.getCourseDescription(); //<-- Needs to be split in half and moved to a new line
-
                     i++;
                 }
                 lblResults.Text = searchResult;
