@@ -18,13 +18,13 @@ namespace TempleCourseHelper
     public partial class frmMenu : Form
     {
         //Worker Class
-        Worker worker = new Worker();
+        private Worker worker = new Worker();
         //Dictionary for course details
-        Dictionary<int, CourseDetails> CourseSchedule = new Dictionary<int, CourseDetails>();
-        String searchResult = "",ratingResult = "";
-        int i = 0;
+        Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int, CourseDetails>>();
+        private String searchResult = "",ratingResult = "";
+        private int i = 0;
 
-        string[] emailList = new string[] {
+        private string[] emailList = new string[] {
             "@gmail.com",
             "@temple.edu",
             "@yahoo.com",
@@ -57,31 +57,40 @@ namespace TempleCourseHelper
                     txtBoxCourse4.Text
                 };
                 string[] courseLetters = new string[]
-               {
+                {
                     cbCourse1.Text.ToUpper(),
                     cbCourse2.Text.ToUpper(),
                     cbCourse3.Text.ToUpper(),
                     cbCourse4.Text.ToUpper()
-               };
+                };
 
                 CourseSchedule = worker.searchCatalog(courseLetters, courseNumbers);
 
-              
-                foreach (KeyValuePair<int, CourseDetails> kv in CourseSchedule)
+                if (CourseSchedule == null)
                 {
-                    ratingResult = kv.Value.getProfessorRating();
-                    if (ratingResult != "No Rating")
+                    searchResult = "Error, you either entered incorrect course letters or the class doesn't exist currently";
+                }
+                else
+                {
+                    foreach (KeyValuePair<int, Dictionary<int, CourseDetails>> kd in CourseSchedule)
                     {
-                        ratingResult = ratingResult + "/100";
+                        var courseSections = kd.Value;
+                        foreach (KeyValuePair<int, CourseDetails> kv in courseSections)
+                        {
+                            ratingResult = kv.Value.getProfessorRating();
+                            if (ratingResult != "No Rating")
+                            {
+                                ratingResult = ratingResult + "/100";
+                            }
+                            searchResult += "\n______________________________________________________________________________________________"
+                            + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
+                            + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
+                            + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
+                            + " Credits: " + kv.Value.getCourseCredit() + "\n"
+                            + kv.Value.getCourseDescription();
+                            i++;
+                        }
                     }
-                    searchResult += "\n______________________________________________________________________________________________"
-                    + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
-                    + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
-                    + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
-                    + " Credits: " + kv.Value.getCourseCredit() + "\n"
-                    + kv.Value.getCourseDescription();
-                    
-                    i++;
                 }
                 lblResults.Text = searchResult;
             }
