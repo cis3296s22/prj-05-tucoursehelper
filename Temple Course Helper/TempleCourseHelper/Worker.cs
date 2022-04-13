@@ -83,8 +83,6 @@ namespace TempleCourseHelper
                     //Tries to get rating, not all professors have them
                     try
                     {
-                        ///html/body/div[4]/div[2]/div[2]/div/div[1]/div[9]/div[2]/div[3]/div[2]/div[2]
-                        ///html/body/div[4]/div[2]/div[2]/div/div[2]/div[9]/div[2]/div[3]/div[2]/div[2]
                         courseDetails.setProfessorRating(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div["+section+"]/div[9]/div[2]/div[3]/div[2]/div[2]")).Text);
                     }
                     catch (Exception NoSuchElementException)
@@ -92,27 +90,29 @@ namespace TempleCourseHelper
                         courseDetails.setProfessorRating("No Rating");
                     }
                     //Tries to get time, some classes provide two time creating two different element id's
-                    try
+                    try //Multiple times
                     {
-                        courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child(1) > div.wrap > div.card.back > div.courseNameBack > div.time.twoTimes")).Text);
+                        courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child("+section+") > div.wrap > div.card.back > div.courseNameBack > div.time.twoTimes")).Text);
                     }
-                    catch (Exception NoSuchElementException)
+                    catch (Exception NoSuchElementException) // One time
                     {
-                        courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child(1) > div.wrap > div.card.back > div.courseNameBack > div.time")).Text);
+                        courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child("+section+") > div.wrap > div.card.back > div.courseNameBack > div.time")).Text);
                     }
-
-
                     courseDetails.setCourseDays(driver.FindElement(By.ClassName("days")).Text);
-                    //Click small info circle
-                    driver.FindElement(By.CssSelector("#cardContainer > div:nth-child(1) > div.wrap > div.card.back > div.infoIcon > i")).Click();
-                    Thread.Sleep(100);
 
-                    //Get course description and credits
-                    courseDetails.setCourseDescription(driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div[2]/div[1]/div[1]")).Text);
-                    courseDetails.setCourseCredit(driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div[2]/div[1]/div[7]")).Text);
-                    //Close extra info box
-                    driver.FindElement(By.CssSelector("#descriptionModal > div > div > div.modal-body > div.centerButton > button")).Click();
-                    Thread.Sleep(1);
+                    if (section == 1)
+                    {
+                        //Click small info circle
+                        driver.FindElement(By.CssSelector("#cardContainer > div:nth-child("+section+") > div.wrap > div.card.back > div.infoIcon > i")).Click();
+                        Thread.Sleep(100);
+
+                        //Get course description and credits
+                        courseDetails.setCourseDescription(driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div[2]/div[1]/div[1]")).Text);
+                        courseDetails.setCourseCredit(driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div[2]/div[1]/div[7]")).Text);
+                        //Close extra info box
+                        driver.FindElement(By.CssSelector("#descriptionModal > div > div > div.modal-body > div.centerButton > button")).Click();
+                        Thread.Sleep(1);
+                    }
 
                     ClassSection.Add((i + 1), courseDetails);
                     driver.FindElement(By.Id("searchBox")).Clear();
