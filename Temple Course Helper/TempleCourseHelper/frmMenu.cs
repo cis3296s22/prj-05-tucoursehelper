@@ -86,7 +86,7 @@ namespace TempleCourseHelper
                 lblResults.Text = searchResult;
             }
         }
-        private void btnSend_Click(object sender, EventArgs e)
+        private async void btnSend_Click(object sender, EventArgs e)
         {
             
             if (badInput(txtBoxEmail))
@@ -98,6 +98,7 @@ namespace TempleCourseHelper
                 //Code to send via Twilio
                 String email = txtBoxEmail.Text;
                 worker.setEmail(email);
+                await worker.sendEmail(email);
                 MessageBox.Show("Email has been send to: " + email);
                 
 
