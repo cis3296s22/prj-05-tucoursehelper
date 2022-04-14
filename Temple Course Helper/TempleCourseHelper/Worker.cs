@@ -119,7 +119,7 @@ namespace TempleCourseHelper
             this.email = email;
         }
 
-        public async void sendEmail(String email)
+        public async Task sendEmail(String email)
         {
             await bot.Main(email);
         }
