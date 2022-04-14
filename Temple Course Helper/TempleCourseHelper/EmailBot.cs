@@ -7,12 +7,12 @@ namespace TempleCourseHelper
 {
     internal class EmailBot
     {
-        static async Task Main()
+           public static async Task Main(String toEmail)
         {
             var apiKey = Environment.GetEnvironmentVariable("SENDGIRID_API_KEY");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("tul52326@temple.edu");
-            var to = new EmailAddress("tul52326@gmail.com");
+            var to = new EmailAddress(toEmail);
             var subject = "SendGrid Twilio Test";
             var plaintext = "Testing";
             var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
