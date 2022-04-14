@@ -17,8 +17,6 @@ namespace TempleCourseHelper
     internal class Worker
     {
         DBConnector DB = new DBConnector();
-        //Dictionary for class sections
-        Dictionary<int, CourseDetails> ClassSection = new Dictionary<int, CourseDetails>();
         //Dictionary of dictionary of class sections for different classes
         Dictionary<int, Dictionary<int,CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int,CourseDetails>>();
         String CoursicleURL = "https://www.coursicle.com/temple/";
@@ -47,16 +45,18 @@ namespace TempleCourseHelper
             for (int i = 0; i < courseNumbers.Length; i++)
             {
                 section = 1;
+                //Dictionary for class sections
+                Dictionary<int, CourseDetails> ClassSection = new Dictionary<int, CourseDetails>();
+
+                //Searches course
+                driver.FindElement(By.Id("searchBox")).SendKeys(courseLetters[i] + " " + courseNumbers[i]);
+                Thread.Sleep(500);
+
                 while (true)
                 {
-
                     CourseDetails courseDetails = new CourseDetails();
                     //Sets course number
                     courseDetails.setCourseCode(courseNumbers[i]);
-
-                    //Searches course
-                    driver.FindElement(By.Id("searchBox")).SendKeys(courseLetters[i] + " " + courseNumbers[i]);
-                    Thread.Sleep(500);
 
                     //Selects result
                     try
@@ -77,9 +77,9 @@ namespace TempleCourseHelper
                     }
 
                     //Get Section/Title/Instructor/Days/Times
-                    courseDetails.setCourseSection(driver.FindElement(By.ClassName("section")).Text);
-                    courseDetails.setCourseName(driver.FindElement(By.ClassName("abbrevTitle")).Text);
-                    courseDetails.setCourseProfessor(driver.FindElement(By.ClassName("instructor")).Text);
+                    courseDetails.setCourseSection(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div["+section+"]/div[9]/div[2]/div[2]/span[3]")).Text);
+                    courseDetails.setCourseName(driver.FindElement(By.ClassName("abbrevTitle")).Text);//Doesnt need xpath since the name is not unique per section
+                    courseDetails.setCourseProfessor(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div["+section+"]/div[9]/div[2]/div[3]/div[2]/div[1]")).Text);
                     //Tries to get rating, not all professors have them
                     try
                     {
@@ -111,14 +111,12 @@ namespace TempleCourseHelper
                         courseDetails.setCourseCredit(driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div[2]/div[1]/div[7]")).Text);
                         //Close extra info box
                         driver.FindElement(By.CssSelector("#descriptionModal > div > div > div.modal-body > div.centerButton > button")).Click();
-                        Thread.Sleep(1);
                     }
-
-                    ClassSection.Add((i + 1), courseDetails);
-                    driver.FindElement(By.Id("searchBox")).Clear();
-
+                    //Section is iterator for html elements for different sections & is an iterator for dictionaries int key
+                    ClassSection.Add(section, courseDetails);
                     section++;
                 }
+                driver.FindElement(By.Id("searchBox")).Clear();
                 CourseSchedule.Add((i + 1), ClassSection);
             }
 
