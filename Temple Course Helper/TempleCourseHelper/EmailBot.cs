@@ -7,7 +7,7 @@ namespace TempleCourseHelper
 {
     internal class EmailBot
     {
-           public static async Task Main(String toEmail)
+           public async Task Main(String toEmail)
         {
             var apiKey = Environment.GetEnvironmentVariable("SENDGIRID_API_KEY");
             var client = new SendGridClient(apiKey);

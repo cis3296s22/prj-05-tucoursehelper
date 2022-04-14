@@ -118,5 +118,10 @@ namespace TempleCourseHelper
         {
             this.email = email;
         }
+
+        public void sendEmail(String email)
+        {
+            return email;
+        }
     }
 }
