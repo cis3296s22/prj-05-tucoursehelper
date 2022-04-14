@@ -119,9 +119,9 @@ namespace TempleCourseHelper
             this.email = email;
         }
 
-        public void sendEmail(String email)
+        public async void sendEmail(String email)
         {
-            return email;
+            await bot.Main(email);
         }
     }
 }

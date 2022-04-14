@@ -24,7 +24,7 @@ namespace TempleCourseHelper
             var plaintext = plainTextContent;
             var html = htmlContent;
 
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plaintext, htmlContent);
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plaintext, html);
             var response = await client.SendEmailAsync(msg).ConfigureAwait(false);
             Console.WriteLine(response.StatusCode);
         }
