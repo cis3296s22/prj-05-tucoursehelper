@@ -45,7 +45,7 @@ namespace TempleCourseHelper
             //Checks if all textboxes have a valid input
             if (badInput(txtBoxCourse1)||badInput(txtBoxCourse2)||badInput(txtBoxCourse3)||badInput(txtBoxCourse4)||badInput(cbCourse1)||badInput(cbCourse2)||badInput(cbCourse3)||badInput(cbCourse4))
             {
-                MessageBox.Show("Either all boxes have not been filled\n\tOr the entry is invalid");
+                MessageBox.Show("Boxes are empty or entry is invalid");
             }
             else
             {
@@ -96,9 +96,9 @@ namespace TempleCourseHelper
             else 
             {
                 //Code to send via Twilio
-                String email = "";
+                String email = txtBoxEmail.Text;
                 worker.setEmail(email);
-                MessageBox.Show("Email has been send to: " + txtBoxEmail.Text.ToLower());
+                MessageBox.Show("Email has been send to: " + email);
                 
 
             }
