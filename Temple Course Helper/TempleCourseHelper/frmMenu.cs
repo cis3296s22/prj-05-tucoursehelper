@@ -88,15 +88,22 @@ namespace TempleCourseHelper
         }
         private void btnSend_Click(object sender, EventArgs e)
         {
+            
             if (badInput(txtBoxEmail))
             {
-                MessageBox.Show("Either the box has not been filled\nOr the email is invalid (Illegal charecter or incorrect mailbox)");
+                MessageBox.Show("Bot is empty or email is invalid");
             }
             else 
             {
-                MessageBox.Show("Email has been send to: " + txtBoxEmail.Text.ToLower());
                 //Code to send via Twilio
+                String email = "";
+                worker.setEmail(email);
+                MessageBox.Show("Email has been send to: " + txtBoxEmail.Text.ToLower());
+                
+
             }
+            
+
         }
         private bool badInput(Control ctrl)
         {
