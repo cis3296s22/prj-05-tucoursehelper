@@ -17,7 +17,7 @@ namespace TempleCourseHelper
         {
             var apiKey = Environment.GetEnvironmentVariable("SENDGIRID_API_KEY");
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("tul52326@temple.edu");
+            var from = new EmailAddress("tul52326@temple.edu", "TU Course Helper");
             
             var to = new EmailAddress(toEmail);
             var subject = subjectContent;
