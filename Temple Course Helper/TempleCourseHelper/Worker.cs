@@ -15,11 +15,13 @@ using OpenQA.Selenium.Support.UI;
 namespace TempleCourseHelper
 {
     internal class Worker
-    {
+    {   
+        EmailBot bot = new EmailBot();
         DBConnector DB = new DBConnector();
         Dictionary<int, CourseDetails> CourseSchedule = new Dictionary<int, CourseDetails>();
         String CoursicleURL = "https://www.coursicle.com/temple/";
         String TUID = "";
+        String email = "";
 
         public Dictionary<int, CourseDetails> searchCatalog(String[] courseLetters,String[] courseNumbers)
         {
@@ -110,6 +112,11 @@ namespace TempleCourseHelper
         public void setTUID(String TUID)
         {
             this.TUID = TUID;
+        }
+
+        public void setEmail(String email)
+        {
+            this.email = email;
         }
     }
 }
