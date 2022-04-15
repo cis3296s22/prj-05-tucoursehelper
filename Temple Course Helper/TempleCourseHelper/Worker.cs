@@ -22,6 +22,7 @@ namespace TempleCourseHelper
         String CoursicleURL = "https://www.coursicle.com/temple/";
         String TUID = "";
         String email = "";
+        String info = "";
 
         public Dictionary<int, CourseDetails> searchCatalog(String[] courseLetters,String[] courseNumbers)
         {
@@ -119,9 +120,14 @@ namespace TempleCourseHelper
             this.email = email;
         }
 
-        public async Task sendEmail(String email)
+        public void setInfo(String info)
         {
-            await bot.Main(email);
+            this.info = info;
+        }
+
+        public async Task sendEmail(String email, String info)
+        {
+            await bot.Main(email, info);
         }
     }
 }
