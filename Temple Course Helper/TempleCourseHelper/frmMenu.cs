@@ -83,7 +83,7 @@ namespace TempleCourseHelper
                     + "\n" + kv.Value.getCourseDescription();
                     
                     i++;
-                }
+                }            
                 lblResults.Text = searchResult;
             }
         }
@@ -99,13 +99,12 @@ namespace TempleCourseHelper
                 //Code to send via Twilio
                 String email = txtBoxEmail.Text;
                 worker.setEmail(email);
-                await worker.sendEmail(email);
-                MessageBox.Show("Email has been send to: " + email);
+                worker.setInfo(searchResult);
+                await worker.sendEmail(email, searchResult);
                 
-
+                MessageBox.Show("Email has been send to: " + email);
             }
-            
-
+          
         }
         private bool badInput(Control ctrl)
         {
