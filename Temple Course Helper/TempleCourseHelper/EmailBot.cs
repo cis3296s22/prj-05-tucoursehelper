@@ -8,12 +8,11 @@ namespace TempleCourseHelper
     internal class EmailBot
     {
         
-        String subjectContent = "Testing Twilio from TU Course Helper";
-        String plainTextContent = "Test content for project";
+        String subjectContent = "Temple Courses";
         String htmlContent = "";
 
 
-        public async Task Main(String toEmail)
+        public async Task Main(String toEmail, String info)
         {
             var apiKey = Environment.GetEnvironmentVariable("SENDGIRID_API_KEY");
             var client = new SendGridClient(apiKey);
@@ -21,7 +20,7 @@ namespace TempleCourseHelper
             
             var to = new EmailAddress(toEmail);
             var subject = subjectContent;
-            var plaintext = plainTextContent;
+            var plaintext = info;
             var html = htmlContent;
 
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plaintext, html);
