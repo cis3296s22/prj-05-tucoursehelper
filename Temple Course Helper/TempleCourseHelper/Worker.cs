@@ -17,6 +17,7 @@ namespace TempleCourseHelper
     internal class Worker
     {
         DBConnector DB = new DBConnector();
+        CheckConflicts checkConflicts = new CheckConflicts();
         //Dictionary of dictionary of class sections for different classes
         Dictionary<int, Dictionary<int,CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int,CourseDetails>>();
         String CoursicleURL = "https://www.coursicle.com/temple/";
@@ -127,6 +128,8 @@ namespace TempleCourseHelper
             //DB.AddDataToDB(TUID,CourseSchedule);
 
             driver.Close();
+
+            CourseSchedule = checkConflicts.runChecker(CourseSchedule);
             return CourseSchedule;
         }
 
