@@ -75,11 +75,12 @@ namespace TempleCourseHelper
                         ratingResult = ratingResult + "/100";
                     }
                     searchResult += "\n______________________________________________________________________________________________"
-                    + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection() + "\n"
-                    + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
-                    + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult
-                    + " Credits: " + kv.Value.getCourseCredit() + "\n"
-                    + kv.Value.getCourseDescription();
+                    + "\n" + kv.Value.getCourseName() + " " + courseNumbers[i] + "-" + kv.Value.getCourseSection()
+                    + "\nDays: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime()
+                    + "\nProfessor: " + kv.Value.getCourseProfessor() 
+                    + "\nRating: " + ratingResult
+                    + "\nCredits: " + kv.Value.getCourseCredit() 
+                    + "\n" + kv.Value.getCourseDescription();
                     
                     i++;
                 }
@@ -193,5 +194,6 @@ namespace TempleCourseHelper
             }
             
         }
+
     }
 }
