@@ -34,7 +34,7 @@
             this.lblCourse3 = new System.Windows.Forms.Label();
             this.lblCourse4 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.lblResults = new System.Windows.Forms.Label();
+            this.lblResults1 = new System.Windows.Forms.Label();
             this.txtBoxCourse1 = new System.Windows.Forms.TextBox();
             this.txtBoxCourse2 = new System.Windows.Forms.TextBox();
             this.txtBoxCourse3 = new System.Windows.Forms.TextBox();
@@ -49,6 +49,9 @@
             this.cbCourse2 = new System.Windows.Forms.ComboBox();
             this.cbCourse3 = new System.Windows.Forms.ComboBox();
             this.cbCourse4 = new System.Windows.Forms.ComboBox();
+            this.lblResults4 = new System.Windows.Forms.Label();
+            this.lblResults3 = new System.Windows.Forms.Label();
+            this.lblResults2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblCourse1
@@ -107,16 +110,16 @@
             this.btnSearch.Visible = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // lblResults
+            // lblResults1
             // 
-            this.lblResults.AutoSize = true;
-            this.lblResults.Enabled = false;
-            this.lblResults.Location = new System.Drawing.Point(351, 9);
-            this.lblResults.Name = "lblResults";
-            this.lblResults.Size = new System.Drawing.Size(45, 13);
-            this.lblResults.TabIndex = 4;
-            this.lblResults.Text = "Results:";
-            this.lblResults.Visible = false;
+            this.lblResults1.AutoSize = true;
+            this.lblResults1.Enabled = false;
+            this.lblResults1.Location = new System.Drawing.Point(2, 5);
+            this.lblResults1.Name = "lblResults1";
+            this.lblResults1.Size = new System.Drawing.Size(45, 13);
+            this.lblResults1.TabIndex = 4;
+            this.lblResults1.Text = "Results:";
+            this.lblResults1.Visible = false;
             // 
             // txtBoxCourse1
             // 
@@ -162,7 +165,7 @@
             // 
             this.txtBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBoxEmail.Enabled = false;
-            this.txtBoxEmail.Location = new System.Drawing.Point(86, 267);
+            this.txtBoxEmail.Location = new System.Drawing.Point(824, 590);
             this.txtBoxEmail.Name = "txtBoxEmail";
             this.txtBoxEmail.Size = new System.Drawing.Size(173, 20);
             this.txtBoxEmail.TabIndex = 11;
@@ -171,9 +174,9 @@
             // btnSend
             // 
             this.btnSend.Enabled = false;
-            this.btnSend.Location = new System.Drawing.Point(86, 302);
+            this.btnSend.Location = new System.Drawing.Point(866, 616);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.Size = new System.Drawing.Size(84, 26);
             this.btnSend.TabIndex = 12;
             this.btnSend.Text = "Send Info";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -184,7 +187,7 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Enabled = false;
-            this.lblEmail.Location = new System.Drawing.Point(45, 270);
+            this.lblEmail.Location = new System.Drawing.Point(783, 593);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 13);
             this.lblEmail.TabIndex = 5;
@@ -193,7 +196,7 @@
             // 
             // btnEnterID
             // 
-            this.btnEnterID.Location = new System.Drawing.Point(440, 297);
+            this.btnEnterID.Location = new System.Drawing.Point(332, 226);
             this.btnEnterID.Name = "btnEnterID";
             this.btnEnterID.Size = new System.Drawing.Size(75, 24);
             this.btnEnterID.TabIndex = 13;
@@ -204,7 +207,7 @@
             // txtBoxTUID
             // 
             this.txtBoxTUID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBoxTUID.Location = new System.Drawing.Point(431, 271);
+            this.txtBoxTUID.Location = new System.Drawing.Point(323, 200);
             this.txtBoxTUID.Name = "txtBoxTUID";
             this.txtBoxTUID.Size = new System.Drawing.Size(100, 20);
             this.txtBoxTUID.TabIndex = 14;
@@ -212,7 +215,7 @@
             // lblTUID
             // 
             this.lblTUID.AutoSize = true;
-            this.lblTUID.Location = new System.Drawing.Point(351, 274);
+            this.lblTUID.Location = new System.Drawing.Point(243, 203);
             this.lblTUID.Name = "lblTUID";
             this.lblTUID.Size = new System.Drawing.Size(64, 13);
             this.lblTUID.TabIndex = 15;
@@ -334,12 +337,48 @@
             this.cbCourse4.TabIndex = 19;
             this.cbCourse4.Visible = false;
             // 
+            // lblResults4
+            // 
+            this.lblResults4.AutoSize = true;
+            this.lblResults4.Enabled = false;
+            this.lblResults4.Location = new System.Drawing.Point(1630, 5);
+            this.lblResults4.Name = "lblResults4";
+            this.lblResults4.Size = new System.Drawing.Size(45, 13);
+            this.lblResults4.TabIndex = 20;
+            this.lblResults4.Text = "Results:";
+            this.lblResults4.Visible = false;
+            // 
+            // lblResults3
+            // 
+            this.lblResults3.AutoSize = true;
+            this.lblResults3.Enabled = false;
+            this.lblResults3.Location = new System.Drawing.Point(1085, 5);
+            this.lblResults3.Name = "lblResults3";
+            this.lblResults3.Size = new System.Drawing.Size(45, 13);
+            this.lblResults3.TabIndex = 21;
+            this.lblResults3.Text = "Results:";
+            this.lblResults3.Visible = false;
+            // 
+            // lblResults2
+            // 
+            this.lblResults2.AutoSize = true;
+            this.lblResults2.Enabled = false;
+            this.lblResults2.Location = new System.Drawing.Point(540, 5);
+            this.lblResults2.Name = "lblResults2";
+            this.lblResults2.Size = new System.Drawing.Size(45, 13);
+            this.lblResults2.TabIndex = 22;
+            this.lblResults2.Text = "Results:";
+            this.lblResults2.Visible = false;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(921, 784);
+            this.ClientSize = new System.Drawing.Size(1991, 765);
+            this.Controls.Add(this.lblResults2);
+            this.Controls.Add(this.lblResults3);
+            this.Controls.Add(this.lblResults4);
             this.Controls.Add(this.cbCourse4);
             this.Controls.Add(this.cbCourse3);
             this.Controls.Add(this.cbCourse2);
@@ -354,7 +393,7 @@
             this.Controls.Add(this.txtBoxCourse3);
             this.Controls.Add(this.txtBoxCourse2);
             this.Controls.Add(this.txtBoxCourse1);
-            this.Controls.Add(this.lblResults);
+            this.Controls.Add(this.lblResults1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblCourse3);
             this.Controls.Add(this.lblCourse4);
@@ -364,6 +403,7 @@
             this.MaximizeBox = false;
             this.Name = "frmMenu";
             this.Text = "Temple Course Helper";
+            this.Load += new System.EventHandler(this.frmMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,7 +416,7 @@
         private System.Windows.Forms.Label lblCourse3;
         private System.Windows.Forms.Label lblCourse4;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label lblResults;
+        private System.Windows.Forms.Label lblResults1;
         private System.Windows.Forms.TextBox txtBoxCourse1;
         private System.Windows.Forms.TextBox txtBoxCourse2;
         private System.Windows.Forms.TextBox txtBoxCourse3;
@@ -391,6 +431,9 @@
         private System.Windows.Forms.ComboBox cbCourse2;
         private System.Windows.Forms.ComboBox cbCourse3;
         private System.Windows.Forms.ComboBox cbCourse4;
+        private System.Windows.Forms.Label lblResults4;
+        private System.Windows.Forms.Label lblResults3;
+        private System.Windows.Forms.Label lblResults2;
     }
 }
 
