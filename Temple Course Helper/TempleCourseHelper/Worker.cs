@@ -6,11 +6,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-
 
 namespace TempleCourseHelper
 {
@@ -18,12 +16,12 @@ namespace TempleCourseHelper
     {   
         EmailBot bot = new EmailBot();
         DBConnector DB = new DBConnector();
+
         //Dictionary of dictionary of class sections for different classes
         Dictionary<int, Dictionary<int,CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int,CourseDetails>>();
+        
         String CoursicleURL = "https://www.coursicle.com/temple/";
-        String TUID = "";
-        String email = "";
-        String info = "";
+        String TUID = "", email = "", info = "";
 
         public Dictionary<int, Dictionary<int, CourseDetails>> searchCatalog(String[] courseLetters,String[] courseNumbers)
         {
@@ -39,7 +37,6 @@ namespace TempleCourseHelper
             //Goes to Coursicle
             driver.Navigate().GoToUrl(CoursicleURL);
             Thread.Sleep(50);
-
 
             //Clears any contents in CourseSchedule
             CourseSchedule.Clear();
@@ -83,6 +80,7 @@ namespace TempleCourseHelper
                     courseDetails.setCourseSection(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div["+section+"]/div[9]/div[2]/div[2]/span[3]")).Text);
                     courseDetails.setCourseName(driver.FindElement(By.ClassName("abbrevTitle")).Text);//Doesnt need xpath since the name is not unique per section
                     courseDetails.setCourseProfessor(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div["+section+"]/div[9]/div[2]/div[3]/div[2]/div[1]")).Text);
+                    
                     //Tries to get rating, not all professors have them
                     try
                     {
@@ -92,6 +90,7 @@ namespace TempleCourseHelper
                     {
                         courseDetails.setProfessorRating("No Rating");
                     }
+                   
                     //Tries to get time, some classes provide two time creating two different element id's
                     try //Multiple times
                     {
@@ -115,6 +114,7 @@ namespace TempleCourseHelper
                         //Close extra info box
                         driver.FindElement(By.CssSelector("#descriptionModal > div > div > div.modal-body > div.centerButton > button")).Click();
                     }
+                   
                     //Section is iterator for html elements for different sections & is an iterator for dictionaries int key
                     ClassSection.Add(section, courseDetails);
                     section++;

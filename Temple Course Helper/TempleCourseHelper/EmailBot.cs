@@ -6,11 +6,9 @@ using SendGrid.Helpers.Mail;
 namespace TempleCourseHelper
 {
     internal class EmailBot
-    {
-        
+    {      
         String subjectContent = "Temple Courses";
         String htmlContent = "";
-
 
         public async Task Main(String toEmail, String info)
         {
