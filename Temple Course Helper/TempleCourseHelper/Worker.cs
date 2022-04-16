@@ -124,10 +124,10 @@ namespace TempleCourseHelper
             }
 
             //Call Setup DB connection
-            DB.setupConnection();
+           // DB.setupConnection();
 
             //adding data to database
-            DB.AddDataToDB(TUID,CourseSchedule);
+            //DB.AddDataToDB(TUID,CourseSchedule);
 
             driver.Close();
             return CourseSchedule;
