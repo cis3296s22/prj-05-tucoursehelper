@@ -19,9 +19,11 @@ namespace TempleCourseHelper
     {
         //Worker Class
         private Worker worker = new Worker();
+
         //Dictionary for course details
         Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int, CourseDetails>>();
-        private String searchResult = "",ratingResult = "";
+       
+        private String searchResult = "",ratingResult = "", info="";
         private int i = 0;
 
         private string[] emailList = new string[] {
@@ -33,7 +35,6 @@ namespace TempleCourseHelper
             "@aol.com",
             "@msn.com"
         };
-
 
         public frmMenu()
         {
@@ -109,18 +110,18 @@ namespace TempleCourseHelper
                             {
                                 ratingResult = ratingResult + "/100";
                             }
+
                             searchResult += "\n__________________________________________________________________________________________"
-                            + "\n" + kv.Value.getCourseName() + " " + kv.Value.getCourseCode() + "-" + kv.Value.getCourseSection() + "\n"
-                            + "Days: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime() + "\n"
-                            + "Professor: " + kv.Value.getCourseProfessor() + " Rating: " + ratingResult;
+                              + "\n" + kv.Value.getCourseName() + " " + kv.Value.getCourseCode() + "-" + kv.Value.getCourseSection()
+                              + "\nDays: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime()
+                              + "\nProfessor: " + kv.Value.getCourseProfessor()
+                              + "\nRating: " + ratingResult;
 
                             if (kv.Key == 1)
                             {
-                                searchResult += " Credits: " + kv.Value.getCourseCredit() + "\n"
-                                                + kv.Value.getCourseDescription();
+                                searchResult += "\nCredits: " + kv.Value.getCourseCredit()
+                                    + "\n" + kv.Value.getCourseDescription();
                             }
-
-
                         }
 
                         //Each iteration will post the section into a different label
@@ -140,13 +141,13 @@ namespace TempleCourseHelper
                                 break;
                         }
                         i++;
+                        info += searchResult;
                     }
                 }
             }
         }
         private async void btnSend_Click(object sender, EventArgs e)
-        {
-            
+        {   
             if (badInput(txtBoxEmail))
             {
                 MessageBox.Show("Bot is empty or email is invalid");
@@ -156,13 +157,9 @@ namespace TempleCourseHelper
                 //Code to send via Twilio
                 String email = txtBoxEmail.Text;
                 worker.setEmail(email);
-                await worker.sendEmail(email);
+                await worker.sendEmail(email, info);
                 MessageBox.Show("Email has been send to: " + email);
-                
-
             }
-            
-
         }
         private bool badInput(Control ctrl)
         {
@@ -208,7 +205,6 @@ namespace TempleCourseHelper
             ctrl.Enabled = true;
             ctrl.Visible = true;
         }
-
         private void frmMenu_Load(object sender, EventArgs e)
         {
             this.Size = new Size(500,500);
@@ -217,15 +213,15 @@ namespace TempleCourseHelper
             txtBoxTUID.Location = new Point(centerW-30, centerH-33);
             btnEnterID.Location = new Point(centerW -30 , centerH);
         }
-
         private void btnEnterID_Click(object sender, EventArgs e)
         {
             //replaces all whitespaces \s with empty strings
             String IDChecker = Regex.Replace(txtBoxTUID.Text, @"\s", "");
 
             //checks if input is valid
-            for (int i =0; i < IDChecker.Length; i++){
-                if(char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
+            for (int i = 0; i < IDChecker.Length; i++)
+            {
+                if (char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
                 {
                     //Code for database
                     worker.setTUID(IDChecker);
@@ -254,8 +250,6 @@ namespace TempleCourseHelper
                     return;
                 }
             }
-            
         }
-
     }
 }
