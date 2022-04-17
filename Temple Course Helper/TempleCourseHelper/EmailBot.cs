@@ -12,7 +12,8 @@ namespace TempleCourseHelper
 
         public async Task Main(String toEmail, String info)
         {
-            var apiKey = Environment.GetEnvironmentVariable("SENDGIRID_API_KEY");
+
+            var apiKey = Key.getKey();
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("jenrubin12@gmail.com", "TU Course Helper");
             

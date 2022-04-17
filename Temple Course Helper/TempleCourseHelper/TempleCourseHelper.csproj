@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Key.cs" />
     <Compile Include="EmailBot.cs" />
     <Compile Include="CourseDetails.cs" />
     <Compile Include="DBConnector.cs" />
