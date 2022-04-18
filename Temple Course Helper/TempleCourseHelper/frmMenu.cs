@@ -20,11 +20,11 @@ namespace TempleCourseHelper
         //Worker Class
         private Worker worker = new Worker();
         //Dictionary for course details
-        Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int, CourseDetails>>();
-        private String searchResult = "",ratingResult = "";
+        private Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int, CourseDetails>>();
+        private string searchResult = "",ratingResult = "";
         private int i = 0;
 
-        private string[] emailList = new string[] {
+        private String[] emailList = new String[] {
             "@gmail.com",
             "@temple.edu",
             "@yahoo.com",
@@ -49,14 +49,14 @@ namespace TempleCourseHelper
             }
             else
             {
-                string[] courseNumbers = new string[]
+                String[] courseNumbers = new String[]
                 {
                     txtBoxCourse1.Text,
                     txtBoxCourse2.Text,
                     txtBoxCourse3.Text,
                     txtBoxCourse4.Text
                 };
-                string[] courseLetters = new string[]
+                String[] courseLetters = new String[]
                 {
                     cbCourse1.Text.ToUpper(),
                     cbCourse2.Text.ToUpper(),
@@ -213,40 +213,46 @@ namespace TempleCourseHelper
         private void btnEnterID_Click(object sender, EventArgs e)
         {
             //replaces all whitespaces \s with empty strings
-            String IDChecker = Regex.Replace(txtBoxTUID.Text, @"\s", "");
-
+            string IDChecker = Regex.Replace(txtBoxTUID.Text, @"\s", "");
+            bool checkerPass = true;
             //checks if input is valid
             for (int i =0; i < IDChecker.Length; i++){
-                if(char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
+                if (char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
                 {
-                    //Code for database
-                    worker.setTUID(IDChecker);
-
-                    //Disable and enables appropriate controls
-                    disableControl(txtBoxTUID);
-                    disableControl(btnEnterID);
-                    disableControl(lblTUID);
-                    enableControl(lblCourse1);
-                    enableControl(lblCourse2);
-                    enableControl(lblCourse3);
-                    enableControl(lblCourse4);
-                    enableControl(btnSearch);
-                    enableControl(txtBoxCourse1);
-                    enableControl(txtBoxCourse2);
-                    enableControl(txtBoxCourse3);
-                    enableControl(txtBoxCourse4);
-                    enableControl(cbCourse1);
-                    enableControl(cbCourse2);
-                    enableControl(cbCourse3);
-                    enableControl(cbCourse4);
-                }
-                else
-                {
-                    MessageBox.Show("Please enter a valid 9-digit TUID");
-                    return;
+                    checkerPass = false;
+                    break;
                 }
             }
-            
+
+            if (checkerPass)
+            {
+                //Code for database
+                worker.setTUID(IDChecker);
+
+                //Disable and enables appropriate controls
+                disableControl(txtBoxTUID);
+                disableControl(btnEnterID);
+                disableControl(lblTUID);
+                enableControl(lblCourse1);
+                enableControl(lblCourse2);
+                enableControl(lblCourse3);
+                enableControl(lblCourse4);
+                enableControl(btnSearch);
+                enableControl(txtBoxCourse1);
+                enableControl(txtBoxCourse2);
+                enableControl(txtBoxCourse3);
+                enableControl(txtBoxCourse4);
+                enableControl(cbCourse1);
+                enableControl(cbCourse2);
+                enableControl(cbCourse3);
+                enableControl(cbCourse4);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid 9-digit TUID");
+                return;
+            }
+
         }
     }
 }

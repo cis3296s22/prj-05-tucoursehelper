@@ -16,11 +16,11 @@ namespace TempleCourseHelper
 
     internal class DBConnector
     {
-        OleDbConnection myConnection;
-        OleDbDataAdapter myDataAdapter;
-        OleDbCommand myCommand = new OleDbCommand();
-        DataSet myDataSet;
-        string strSQL;
+        private OleDbConnection myConnection;
+        private OleDbDataAdapter myDataAdapter;
+        private OleDbCommand myCommand = new OleDbCommand();
+        private DataSet myDataSet;
+        private string strSQL;
 
         public void setupConnection()
         {
@@ -30,7 +30,7 @@ namespace TempleCourseHelper
             myDataSet = new DataSet("UserSearchesTable");
             myDataAdapter.Fill(myDataSet, "UserSearchesTable");
         }
-        public void AddDataToDB(String TUID,Dictionary<int, CourseDetails> CourseSchedule)
+        public void AddDataToDB(string TUID,Dictionary<int, CourseDetails> CourseSchedule)
         {
             int i = 1;
             foreach (KeyValuePair<int, CourseDetails> keyValue in CourseSchedule)
