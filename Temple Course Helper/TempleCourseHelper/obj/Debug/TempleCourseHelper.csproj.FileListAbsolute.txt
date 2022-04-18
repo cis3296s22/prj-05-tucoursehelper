@@ -114,3 +114,4 @@ C:\Users\jenru\source\repos\prj-05-tucoursehelper\Temple Course Helper\TempleCou
 C:\Users\jenru\source\repos\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.csproj.CopyComplete
 C:\Users\jenru\source\repos\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.exe
 C:\Users\jenru\source\repos\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.pdb
+

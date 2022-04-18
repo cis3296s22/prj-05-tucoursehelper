@@ -73,7 +73,7 @@ namespace TempleCourseHelper
                 }
                 else
                 {
-                    this.Size = new Size(2200, 800);
+                    this.Size = new Size(1800, 850);
                     disableControl(dgvResults);
                     disableControl(lblCourse1);
                     disableControl(lblCourse2);
@@ -112,7 +112,7 @@ namespace TempleCourseHelper
                                 ratingResult = ratingResult + "/100";
                             }
 
-                            searchResult += "\n__________________________________________________________________________________________"
+                            searchResult += "\n______________________________________________________"
                               + "\n" + kv.Value.getCourseName() + " " + kv.Value.getCourseCode() + "-" + kv.Value.getCourseSection()
                               + "\nDays: " + kv.Value.getCourseDays() + " Times: " + kv.Value.getCourseTime()
                               + "\nProfessor: " + kv.Value.getCourseProfessor()
