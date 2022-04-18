@@ -30,9 +30,7 @@ namespace TempleCourseHelper
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments("headless");
 
-            //Add chrom exe location
-            //driver = new ChromeDriver(chromeOptions);
-            IWebDriver driver = new ChromeDriver(@"../../" + "/Resources/");
+            IWebDriver driver = new ChromeDriver(@"../../" + "/Resources/", chromeOptions);
 
             //Goes to Coursicle
             driver.Navigate().GoToUrl(CoursicleURL);
