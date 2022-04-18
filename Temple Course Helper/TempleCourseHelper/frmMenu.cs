@@ -21,9 +21,9 @@ namespace TempleCourseHelper
         private Worker worker = new Worker();
 
         //Dictionary for course details
-        Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int, CourseDetails>>();
+        private Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int, CourseDetails>>();
        
-        private String searchResult = "",ratingResult = "", info="";
+        private string searchResult = "",ratingResult = "", info="";
         private int i = 0;
 
         private string[] emailList = new string[] {
@@ -74,6 +74,7 @@ namespace TempleCourseHelper
                 else
                 {
                     this.Size = new Size(2200, 800);
+                    disableControl(dgvResults);
                     disableControl(lblCourse1);
                     disableControl(lblCourse2);
                     disableControl(lblCourse3);
@@ -155,7 +156,7 @@ namespace TempleCourseHelper
             else 
             {
                 //Code to send via Twilio
-                String email = txtBoxEmail.Text;
+                string email = txtBoxEmail.Text;
                 worker.setEmail(email);
                 await worker.sendEmail(email, info);
                 MessageBox.Show("Email has been send to: " + email);
