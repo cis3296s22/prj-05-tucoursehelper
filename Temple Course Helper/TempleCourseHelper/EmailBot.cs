@@ -8,11 +8,9 @@ namespace TempleCourseHelper
     internal class EmailBot
     {      
         String subjectContent = "Temple Courses";
-        String htmlContent = "";
 
         public async Task Main(String toEmail, String info)
         {
-
             var apiKey = Key.getKey();
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("jenrubin12@gmail.com", "TU Course Helper");
@@ -20,7 +18,7 @@ namespace TempleCourseHelper
             var to = new EmailAddress(toEmail);
             var subject = subjectContent;
             var plaintext = info;
-            var html = htmlContent;
+            var html = "";
 
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plaintext, html);
             var response = await client.SendEmailAsync(msg).ConfigureAwait(false);
