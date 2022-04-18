@@ -223,9 +223,18 @@ namespace TempleCourseHelper
             {
                 if (char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
                 {
-                    //Code for database
                     worker.setTUID(IDChecker);
 
+                    //checks if previous search exists
+                    if (worker.GetRecords().Tables["SearchResults"] != null)
+                    {
+                            enableControl(dgvResults);
+                            this.Size = new Size(1200, 500);
+                            //displays previous search
+                            dgvResults.DataSource = (worker.GetRecords()).Tables["SearchResults"].DefaultView;
+                        
+                        
+                    }
                     //Disable and enables appropriate controls
                     disableControl(txtBoxTUID);
                     disableControl(btnEnterID);

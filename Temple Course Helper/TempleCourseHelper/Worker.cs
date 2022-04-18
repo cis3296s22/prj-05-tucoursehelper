@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -124,10 +125,10 @@ namespace TempleCourseHelper
             }
 
             //Call Setup DB connection
-           // DB.setupConnection();
+            DB.setupConnection();
 
             //adding data to database
-            //DB.AddDataToDB(TUID,CourseSchedule);
+            DB.AddDataToDB(TUID,CourseSchedule);
 
             driver.Close();
             return CourseSchedule;
@@ -156,6 +157,20 @@ namespace TempleCourseHelper
         public async Task sendEmail(String email, String info)
         {
             await bot.Main(email, info);
+        public bool checkRecords()
+        {
+            DB.setupConnection();
+             return DB.checkRecords(TUID);
+
+        }
+        public DataSet GetRecords()
+        {
+            DataSet ds = new DataSet();
+            if (checkRecords())
+            {
+                ds = DB.GetRecords(TUID);
+            }
+            return ds;
         }
     }
 }

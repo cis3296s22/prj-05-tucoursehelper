@@ -52,6 +52,8 @@
             this.lblResults4 = new System.Windows.Forms.Label();
             this.lblResults3 = new System.Windows.Forms.Label();
             this.lblResults2 = new System.Windows.Forms.Label();
+            this.dgvResults = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCourse1
@@ -370,12 +372,28 @@
             this.lblResults2.Text = "Results:";
             this.lblResults2.Visible = false;
             // 
+            // dgvResults
+            // 
+            this.dgvResults.AllowUserToAddRows = false;
+            this.dgvResults.AllowUserToDeleteRows = false;
+            this.dgvResults.AllowUserToResizeColumns = false;
+            this.dgvResults.AllowUserToResizeRows = false;
+            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResults.Enabled = false;
+            this.dgvResults.Location = new System.Drawing.Point(442, 34);
+            this.dgvResults.Name = "dgvResults";
+            this.dgvResults.ReadOnly = true;
+            this.dgvResults.Size = new System.Drawing.Size(555, 360);
+            this.dgvResults.TabIndex = 23;
+            this.dgvResults.Visible = false;
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1991, 765);
+            this.Controls.Add(this.dgvResults);
             this.Controls.Add(this.lblResults2);
             this.Controls.Add(this.lblResults3);
             this.Controls.Add(this.lblResults4);
@@ -404,6 +422,7 @@
             this.Name = "frmMenu";
             this.Text = "Temple Course Helper";
             this.Load += new System.EventHandler(this.frmMenu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,6 +453,7 @@
         private System.Windows.Forms.Label lblResults4;
         private System.Windows.Forms.Label lblResults3;
         private System.Windows.Forms.Label lblResults2;
+        private System.Windows.Forms.DataGridView dgvResults;
     }
 }
 
