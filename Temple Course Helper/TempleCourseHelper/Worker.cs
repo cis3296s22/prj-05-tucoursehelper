@@ -37,7 +37,7 @@ namespace TempleCourseHelper
 
             //Goes to Coursicle
             driver.Navigate().GoToUrl(CoursicleURL);
-            Thread.Sleep(50);
+            Thread.Sleep(500);
 
             //Clears any contents in CourseSchedule
             CourseSchedule.Clear();
@@ -49,9 +49,17 @@ namespace TempleCourseHelper
                 //Dictionary for class sections
                 Dictionary<int, CourseDetails> ClassSection = new Dictionary<int, CourseDetails>();
 
-                //Searches course
-                driver.FindElement(By.Id("searchBox")).SendKeys(courseLetters[i] + " " + courseNumbers[i]);
-                Thread.Sleep(500);
+                //Searches course, tries twice
+                try
+                {
+                    driver.FindElement(By.Id("searchBox")).SendKeys(courseLetters[i] + " " + courseNumbers[i]);
+                    Thread.Sleep(500);
+                }
+                catch (Exception ex)
+                {
+                    driver.FindElement(By.Id("searchBox")).SendKeys(courseLetters[i] + " " + courseNumbers[i]);
+                    Thread.Sleep(500);
+                }
 
                 while (true)
                 {
@@ -107,7 +115,7 @@ namespace TempleCourseHelper
                     {
                         //Click small info circle
                         driver.FindElement(By.CssSelector("#cardContainer > div:nth-child("+section+") > div.wrap > div.card.back > div.infoIcon > i")).Click();
-                        Thread.Sleep(100);
+                        Thread.Sleep(200);
 
                         //Get course description and credits
                         courseDetails.setCourseDescription(driver.FindElement(By.XPath("/html/body/div[5]/div[1]/div/div/div[2]/div[1]/div[1]")).Text);

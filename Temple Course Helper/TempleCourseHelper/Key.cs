@@ -8,9 +8,9 @@ namespace TempleCourseHelper
 {
     internal class Key
     {
-        public static String getKey()
+        public static string getKey()
         {
-            Dictionary<int, String> letters = new Dictionary<int, String>();
+            Dictionary<int, string> letters = new Dictionary<int, string>();
 
             letters.Add(1, "w");
             letters.Add(2, "k");

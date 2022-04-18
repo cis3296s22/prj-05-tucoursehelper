@@ -114,4 +114,7 @@ C:\Users\jenru\source\repos\prj-05-tucoursehelper\Temple Course Helper\TempleCou
 C:\Users\jenru\source\repos\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.csproj.CopyComplete
 C:\Users\jenru\source\repos\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.exe
 C:\Users\jenru\source\repos\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.pdb
-
+C:\Users\akozh\Desktop\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\SendGrid.dll
+C:\Users\akozh\Desktop\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\StarkbankEcdsa.dll
+C:\Users\akozh\Desktop\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\SendGrid.pdb
+C:\Users\akozh\Desktop\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\SendGrid.xml
