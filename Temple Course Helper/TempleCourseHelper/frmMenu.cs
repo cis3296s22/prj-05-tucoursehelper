@@ -217,7 +217,7 @@ namespace TempleCourseHelper
             bool checkerPass = true;
             //checks if input is valid
             for (int i =0; i < IDChecker.Length; i++){
-                if (char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
+                if (!char.IsNumber(IDChecker[i]) || IDChecker.Length == 0)//<--Should be 9, is 0 for testing
                 {
                     checkerPass = false;
                     break;
