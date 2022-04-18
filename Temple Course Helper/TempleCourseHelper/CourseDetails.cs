@@ -62,7 +62,7 @@ namespace TempleCourseHelper
             for (int i = 1; i < desc.Length; i++)
             {
                 //After 100 charecters of the decription
-                if (i % 60 == 0)
+                if (i % 55 == 0)
                 {
                     //The code will search for the next white space
                     while (true)
