@@ -9,7 +9,7 @@ namespace TempleCourseHelper
 {
     internal class CourseDetails
     {
-        string courseName, courseCode, courseDescription, courseProfessor, professorRating, courseTime, courseSection, courseDays, courseCredits; 
+        string courseName, courseCode, courseDescription, courseProfessor, professorRating, courseTime, courseSection, courseDays, courseCredits, courseConflicts; 
 
         public string getCourseName()
         {
@@ -47,17 +47,21 @@ namespace TempleCourseHelper
         {
             return courseCredits;
         }
+        public string getCourseConflicts()
+        {
+            return courseConflicts;
+        }
 
 
-        public void setCourseName(String name)
+        public void setCourseName(string name)
         {
             this.courseName = name;
         }
-        public void setCourseCode(String code)
+        public void setCourseCode(string code)
         {
             this.courseCode = code;
         }
-        public void setCourseDescription(String desc)
+        public void setCourseDescription(string desc)
         {
             for (int i = 1; i < desc.Length; i++)
             {
@@ -87,29 +91,33 @@ namespace TempleCourseHelper
             }
             this.courseDescription = Regex.Replace(desc, @"Description: ","");
         }
-        public void setCourseProfessor(String prof)
+        public void setCourseProfessor(string prof)
         {
             this.courseProfessor = prof;
         }
-        public void setProfessorRating(String profRating)
+        public void setProfessorRating(string profRating)
         {
             this.professorRating = profRating;
         }
-        public void setCourseTime(String time)
+        public void setCourseTime(string time)
         {
             this.courseTime = Regex.Replace(time, @"\r\n", ""); ;
         }
-        public void setCourseSection(String section)
+        public void setCourseSection(string section)
         {
             this.courseSection = section;
         }
-        public void setCourseDays(String days)
+        public void setCourseDays(string days)
         {
             this.courseDays = days;
         }
         public void setCourseCredit(string credit)
         {
             this.courseCredits = Regex.Replace(credit, @"Credits: ","");   
+        }
+        public void setCourseConflicts(string conflict)
+        {
+            this.courseConflicts = conflict;
         }
 
     }

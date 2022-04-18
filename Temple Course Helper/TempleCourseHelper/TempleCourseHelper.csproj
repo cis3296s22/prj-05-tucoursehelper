@@ -84,7 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckConflicts.cs" />
-    <Compile Include="ClassTimeDate.cs" />
+    <Compile Include="ClassTimeRange.cs" />
     <Compile Include="CourseDetails.cs" />
     <Compile Include="DBConnector.cs" />
     <Compile Include="frmMenu.cs">
