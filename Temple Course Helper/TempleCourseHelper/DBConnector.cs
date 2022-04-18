@@ -16,11 +16,11 @@ namespace TempleCourseHelper
 
     internal class DBConnector
     {
-        OleDbConnection myConnection;
-        OleDbDataAdapter myDataAdapter;
-        OleDbCommand myCommand = new OleDbCommand();
-        DataSet myDataSet;
-        string strSQL;
+        private OleDbConnection myConnection;
+        private OleDbDataAdapter myDataAdapter;
+        private OleDbCommand myCommand = new OleDbCommand();
+        private DataSet myDataSet;
+        private string strSQL;
 
         public void setupConnection()
         {
@@ -38,7 +38,7 @@ namespace TempleCourseHelper
             myCommand.ExecuteNonQuery();
             myConnection.Close();
         }
-        public void AddDataToDB(String TUID, Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule)
+        public void AddDataToDB(string TUID, Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule)
         {
             int i = 1;
             foreach (KeyValuePair<int, Dictionary<int, CourseDetails>> kd in CourseSchedule)
@@ -61,7 +61,7 @@ namespace TempleCourseHelper
                 i++;
             }
         }
-        public bool checkRecords(String TUID)
+        public bool checkRecords(string TUID)
         {
             myCommand.CommandType = CommandType.Text;
             myCommand.CommandText = "SELECT (TUID) FROM UserSearches WHERE (TUID) LIKE '%" + TUID + "%'";
@@ -77,7 +77,7 @@ namespace TempleCourseHelper
             
         }
 
-        public DataSet GetRecords(String TUID)
+        public DataSet GetRecords(string TUID)
         {
             myCommand.CommandType = CommandType.Text;
             strSQL = "SELECT * FROM UserSearches WHERE (TUID) LIKE '%" + TUID + "%'";

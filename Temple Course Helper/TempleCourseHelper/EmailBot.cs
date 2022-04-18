@@ -7,10 +7,10 @@ namespace TempleCourseHelper
 {
     internal class EmailBot
     {      
-        String subjectContent = "Temple Courses";
-        String htmlContent = "";
+        private string subjectContent = "Temple Courses";
+        private string htmlContent = "";
 
-        public async Task Main(String toEmail, String info)
+        public async Task Main(string toEmail, string info)
         {
             var apiKey = Environment.GetEnvironmentVariable("SENDGIRID_API_KEY");
             var client = new SendGridClient(apiKey);
