@@ -7,23 +7,24 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-
 
 namespace TempleCourseHelper
 {
     internal class Worker
     {
-        private DBConnector DB = new DBConnector();
-        //Dictionary of dictionary of class sections for different classes
-        private Dictionary<int, Dictionary<int,CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int,CourseDetails>>();
-        private string CoursicleURL = "https://www.coursicle.com/temple/";
-        private string TUID = "";
+        EmailBot bot = new EmailBot();
+        DBConnector DB = new DBConnector();
 
-        public Dictionary<int, Dictionary<int, CourseDetails>> searchCatalog(String[] courseLetters,String[] courseNumbers)
+        //Dictionary of dictionary of class sections for different classes
+        Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int, CourseDetails>>();
+
+        String CoursicleURL = "https://www.coursicle.com/temple/";
+        String TUID = "", email = "", info = "";
+
+        public Dictionary<int, Dictionary<int, CourseDetails>> searchCatalog(String[] courseLetters, String[] courseNumbers)
         {
             int section = 1;
             //Open Chrome "headless" or not visible to user
@@ -32,12 +33,11 @@ namespace TempleCourseHelper
 
             //Add chrom exe location
             //driver = new ChromeDriver(chromeOptions);
-            IWebDriver driver = new ChromeDriver(@"../../" + "/Resources/",chromeOptions);
+            IWebDriver driver = new ChromeDriver(@"../../" + "/Resources/");
 
             //Goes to Coursicle
             driver.Navigate().GoToUrl(CoursicleURL);
             Thread.Sleep(50);
-
 
             //Clears any contents in CourseSchedule
             CourseSchedule.Clear();
@@ -62,7 +62,7 @@ namespace TempleCourseHelper
                     //Selects result
                     try
                     {
-                        driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div["+section+"]/div[9]/div[3]")).Click();
+                        driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div[" + section + "]/div[9]/div[3]")).Click();
                     }
                     catch (Exception NoSuchElementException)
                     {
@@ -78,33 +78,35 @@ namespace TempleCourseHelper
                     }
 
                     //Get Section/Title/Instructor/Days/Times
-                    courseDetails.setCourseSection(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div["+section+"]/div[9]/div[2]/div[2]/span[3]")).Text);
+                    courseDetails.setCourseSection(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div[" + section + "]/div[9]/div[2]/div[2]/span[3]")).Text);
                     courseDetails.setCourseName(driver.FindElement(By.ClassName("abbrevTitle")).Text);//Doesnt need xpath since the name is not unique per section
-                    courseDetails.setCourseProfessor(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div["+section+"]/div[9]/div[2]/div[3]/div[2]/div[1]")).Text);
+                    courseDetails.setCourseProfessor(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div[" + section + "]/div[9]/div[2]/div[3]/div[2]/div[1]")).Text);
+
                     //Tries to get rating, not all professors have them
                     try
                     {
-                        courseDetails.setProfessorRating(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div["+section+"]/div[9]/div[2]/div[3]/div[2]/div[2]")).Text);
+                        courseDetails.setProfessorRating(driver.FindElement(By.XPath("/html/body/div[4]/div[2]/div[2]/div/div[" + section + "]/div[9]/div[2]/div[3]/div[2]/div[2]")).Text);
                     }
                     catch (Exception NoSuchElementException)
                     {
                         courseDetails.setProfessorRating("No Rating");
                     }
+
                     //Tries to get time, some classes provide two time creating two different element id's
                     try //Multiple times
                     {
-                        courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child("+section+") > div.wrap > div.card.back > div.courseNameBack > div.time.twoTimes")).Text);
+                        courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child(" + section + ") > div.wrap > div.card.back > div.courseNameBack > div.time.twoTimes")).Text);
                     }
                     catch (Exception NoSuchElementException) // One time
                     {
-                        courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child("+section+") > div.wrap > div.card.back > div.courseNameBack > div.time")).Text);
+                        courseDetails.setCourseTime(driver.FindElement(By.CssSelector("#cardContainer > div:nth-child(" + section + ") > div.wrap > div.card.back > div.courseNameBack > div.time")).Text);
                     }
                     courseDetails.setCourseDays(driver.FindElement(By.ClassName("days")).Text);
 
                     if (section == 1)
                     {
                         //Click small info circle
-                        driver.FindElement(By.CssSelector("#cardContainer > div:nth-child("+section+") > div.wrap > div.card.back > div.infoIcon > i")).Click();
+                        driver.FindElement(By.CssSelector("#cardContainer > div:nth-child(" + section + ") > div.wrap > div.card.back > div.infoIcon > i")).Click();
                         Thread.Sleep(100);
 
                         //Get course description and credits
@@ -113,6 +115,7 @@ namespace TempleCourseHelper
                         //Close extra info box
                         driver.FindElement(By.CssSelector("#descriptionModal > div > div > div.modal-body > div.centerButton > button")).Click();
                     }
+
                     //Section is iterator for html elements for different sections & is an iterator for dictionaries int key
                     ClassSection.Add(section, courseDetails);
                     section++;
@@ -125,28 +128,44 @@ namespace TempleCourseHelper
             DB.setupConnection();
 
             //adding data to database
-            DB.AddDataToDB(TUID,CourseSchedule);
+            DB.AddDataToDB(TUID, CourseSchedule);
 
             driver.Close();
             return CourseSchedule;
         }
 
-       // public Dictionary<int, CourseDetails> getUserInfo(string ID)
+        // public Dictionary<int, CourseDetails> getUserInfo(String ID)
         //{
-            //Fill CourseSchedule with previous search of the user
+        //Fill CourseSchedule with previous search of the user
         //    return CourseSchedule;
-       // }
-        public void setTUID(string TUID)
+        // }
+        public void setTUID(String TUID)
         {
             this.TUID = TUID;
+        }
+
+        public void setEmail(String email)
+        {
+            this.email = email;
+        }
+
+        public void setInfo(String info)
+        {
+            this.info = info;
+        }
+
+        public async Task sendEmail(String email, String info)
+        {
+            await bot.Main(email, info);
         }
 
         public bool checkRecords()
         {
             DB.setupConnection();
-             return DB.checkRecords(TUID);
+            return DB.checkRecords(TUID);
 
         }
+
         public DataSet GetRecords()
         {
             DataSet ds = new DataSet();
