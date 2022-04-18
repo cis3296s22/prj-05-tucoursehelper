@@ -8,9 +8,10 @@ For Temple’s students, their parents and professors who need an easier and mor
 # How to Build
 
 Prerequisites:
-
+* Double-click AccessDatabaseEngine and install it into prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\Resources
 * Chrome Web Browser
 * Chrome WebDriver Download: https://chromedriver.storage.googleapis.com/index.html
+ ^(Already installed for Windows)^
 * Operating system: Windows 11, Windows 10, Windows 8.1
 * Visual Studio Enterprice 2022
 * Microsoft Access 2019

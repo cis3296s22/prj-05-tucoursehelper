@@ -97,7 +97,7 @@ namespace TempleCourseHelper
         }
         public void setCourseTime(string time)
         {
-            this.courseTime = Regex.Replace(time, @"\r\n", ""); ;
+            this.courseTime = Regex.Replace(time, @"\r\n", ""); 
         }
         public void setCourseSection(string section)
         {
