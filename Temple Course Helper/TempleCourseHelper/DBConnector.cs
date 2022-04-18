@@ -74,7 +74,22 @@ namespace TempleCourseHelper
 
             bool ifExists = result != null ? true : false;
             return ifExists;
+<<<<<<< HEAD
 
+        }
+
+        public DataSet GetRecords(String TUID)
+        {
+            myCommand.CommandType = CommandType.Text;
+            strSQL = "SELECT * FROM UserSearches WHERE (TUID) LIKE '%" + TUID + "%'";
+            myDataAdapter.SelectCommand.CommandText = strSQL;
+            myDataSet = new DataSet("SearchResults");
+            myDataAdapter.Fill(myDataSet, "SearchResults");
+            return myDataSet;
+
+=======
+            
+>>>>>>> remotes/origin/main
         }
 
         public DataSet GetRecords(String TUID)

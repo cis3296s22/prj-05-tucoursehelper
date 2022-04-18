@@ -226,8 +226,18 @@ namespace TempleCourseHelper
 
             if (checkerPass)
             {
-                //Code for database
-                worker.setTUID(IDChecker);
+				worker.setTUID(IDChecker);
+
+                //checks if previous search exists
+                if (worker.GetRecords().Tables["SearchResults"] != null)
+                {
+                        enableControl(dgvResults);
+                        this.Size = new Size(1200, 500);
+                        //displays previous search
+                        dgvResults.DataSource = (worker.GetRecords()).Tables["SearchResults"].DefaultView;
+                    
+                    
+                }
 
                 //Disable and enables appropriate controls
                 disableControl(txtBoxTUID);
