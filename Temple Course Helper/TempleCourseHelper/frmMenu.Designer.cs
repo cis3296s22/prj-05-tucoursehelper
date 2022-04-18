@@ -343,7 +343,7 @@
             // 
             this.lblResults4.AutoSize = true;
             this.lblResults4.Enabled = false;
-            this.lblResults4.Location = new System.Drawing.Point(1630, 5);
+            this.lblResults4.Location = new System.Drawing.Point(952, 5);
             this.lblResults4.Name = "lblResults4";
             this.lblResults4.Size = new System.Drawing.Size(45, 13);
             this.lblResults4.TabIndex = 20;
@@ -354,7 +354,7 @@
             // 
             this.lblResults3.AutoSize = true;
             this.lblResults3.Enabled = false;
-            this.lblResults3.Location = new System.Drawing.Point(1085, 5);
+            this.lblResults3.Location = new System.Drawing.Point(634, 5);
             this.lblResults3.Name = "lblResults3";
             this.lblResults3.Size = new System.Drawing.Size(45, 13);
             this.lblResults3.TabIndex = 21;
@@ -365,7 +365,7 @@
             // 
             this.lblResults2.AutoSize = true;
             this.lblResults2.Enabled = false;
-            this.lblResults2.Location = new System.Drawing.Point(540, 5);
+            this.lblResults2.Location = new System.Drawing.Point(329, 5);
             this.lblResults2.Name = "lblResults2";
             this.lblResults2.Size = new System.Drawing.Size(45, 13);
             this.lblResults2.TabIndex = 22;
