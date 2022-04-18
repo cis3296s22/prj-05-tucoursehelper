@@ -21,9 +21,9 @@ namespace TempleCourseHelper
         private Worker worker = new Worker();
 
         //Dictionary for course details
-        Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int, CourseDetails>>();
+        private Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int, CourseDetails>>();
        
-        private String searchResult = "",ratingResult = "", info="";
+        private string searchResult = "",ratingResult = "", info="";
         private int i = 0;
 
         private string[] emailList = new string[] {
@@ -74,6 +74,7 @@ namespace TempleCourseHelper
                 else
                 {
                     this.Size = new Size(2200, 800);
+                    disableControl(dgvResults);
                     disableControl(lblCourse1);
                     disableControl(lblCourse2);
                     disableControl(lblCourse3);
@@ -155,7 +156,7 @@ namespace TempleCourseHelper
             else 
             {
                 //Code to send via Twilio
-                String email = txtBoxEmail.Text;
+                string email = txtBoxEmail.Text;
                 worker.setEmail(email);
                 await worker.sendEmail(email, info);
                 MessageBox.Show("Email has been send to: " + email);
@@ -216,49 +217,57 @@ namespace TempleCourseHelper
         private void btnEnterID_Click(object sender, EventArgs e)
         {
             //replaces all whitespaces \s with empty strings
-            String IDChecker = Regex.Replace(txtBoxTUID.Text, @"\s", "");
-
+            string IDChecker = Regex.Replace(txtBoxTUID.Text, @"\s", "");
+            bool checkerPass = true;
             //checks if input is valid
             for (int i = 0; i < IDChecker.Length; i++)
             {
-                if (char.IsNumber(IDChecker[i]) && IDChecker.Length >= 0)//<--Should be 9, is 0 for testing
+                if (!char.IsNumber(IDChecker[i]) || IDChecker.Length == 0)//<--Should be 9, is 0 for testing
                 {
-                    worker.setTUID(IDChecker);
-
-                    //checks if previous search exists
-                    if (worker.GetRecords().Tables["SearchResults"] != null)
-                    {
-                            enableControl(dgvResults);
-                            this.Size = new Size(1200, 500);
-                            //displays previous search
-                            dgvResults.DataSource = (worker.GetRecords()).Tables["SearchResults"].DefaultView;
-                        
-                        
-                    }
-                    //Disable and enables appropriate controls
-                    disableControl(txtBoxTUID);
-                    disableControl(btnEnterID);
-                    disableControl(lblTUID);
-                    enableControl(lblCourse1);
-                    enableControl(lblCourse2);
-                    enableControl(lblCourse3);
-                    enableControl(lblCourse4);
-                    enableControl(btnSearch);
-                    enableControl(txtBoxCourse1);
-                    enableControl(txtBoxCourse2);
-                    enableControl(txtBoxCourse3);
-                    enableControl(txtBoxCourse4);
-                    enableControl(cbCourse1);
-                    enableControl(cbCourse2);
-                    enableControl(cbCourse3);
-                    enableControl(cbCourse4);
-                }
-                else
-                {
-                    MessageBox.Show("Please enter a valid 9-digit TUID");
-                    return;
+                    checkerPass = false;
+                    break;
                 }
             }
+
+            if (checkerPass)
+            {
+                worker.setTUID(IDChecker);
+
+                //checks if previous search exists
+                if (worker.GetRecords().Tables["SearchResults"] != null)
+                {
+                    enableControl(dgvResults);
+                    this.Size = new Size(1200, 500);
+                    //displays previous search
+                    dgvResults.DataSource = (worker.GetRecords()).Tables["SearchResults"].DefaultView;
+
+
+                }
+
+                //Disable and enables appropriate controls
+                disableControl(txtBoxTUID);
+                disableControl(btnEnterID);
+                disableControl(lblTUID);
+                enableControl(lblCourse1);
+                enableControl(lblCourse2);
+                enableControl(lblCourse3);
+                enableControl(lblCourse4);
+                enableControl(btnSearch);
+                enableControl(txtBoxCourse1);
+                enableControl(txtBoxCourse2);
+                enableControl(txtBoxCourse3);
+                enableControl(txtBoxCourse4);
+                enableControl(cbCourse1);
+                enableControl(cbCourse2);
+                enableControl(cbCourse3);
+                enableControl(cbCourse4);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid 9-digit TUID");
+                return;
+            }
+
         }
     }
 }

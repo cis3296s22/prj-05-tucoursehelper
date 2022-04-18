@@ -15,16 +15,16 @@ namespace TempleCourseHelper
 {
     internal class Worker
     {   
-        EmailBot bot = new EmailBot();
-        DBConnector DB = new DBConnector();
+        private EmailBot bot = new EmailBot();
+        private DBConnector DB = new DBConnector();
 
         //Dictionary of dictionary of class sections for different classes
-        Dictionary<int, Dictionary<int,CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int,CourseDetails>>();
+        private Dictionary<int, Dictionary<int,CourseDetails>> CourseSchedule = new Dictionary<int, Dictionary<int,CourseDetails>>();
         
-        String CoursicleURL = "https://www.coursicle.com/temple/";
-        String TUID = "", email = "", info = "";
+        private string CoursicleURL = "https://www.coursicle.com/temple/";
+        private string TUID = "", email = "", info = "";
 
-        public Dictionary<int, Dictionary<int, CourseDetails>> searchCatalog(String[] courseLetters,String[] courseNumbers)
+        public Dictionary<int, Dictionary<int, CourseDetails>> searchCatalog(string[] courseLetters,string[] courseNumbers)
         {
             int section = 1;
             //Open Chrome "headless" or not visible to user
@@ -33,7 +33,7 @@ namespace TempleCourseHelper
 
             //Add chrom exe location
             //driver = new ChromeDriver(chromeOptions);
-            IWebDriver driver = new ChromeDriver(@"../../" + "/Resources/");
+            IWebDriver driver = new ChromeDriver(@"../../" + "/Resources/",chromeOptions);
 
             //Goes to Coursicle
             driver.Navigate().GoToUrl(CoursicleURL);
@@ -134,35 +134,37 @@ namespace TempleCourseHelper
             return CourseSchedule;
         }
 
-       // public Dictionary<int, CourseDetails> getUserInfo(String ID)
+       // public Dictionary<int, CourseDetails> getUserInfo(string ID)
         //{
             //Fill CourseSchedule with previous search of the user
         //    return CourseSchedule;
        // }
-        public void setTUID(String TUID)
+        public void setTUID(string TUID)
         {
             this.TUID = TUID;
         }
 
-        public void setEmail(String email)
+        public void setEmail(string email)
         {
             this.email = email;
         }
 
-        public void setInfo(String info)
+        public void setInfo(string info)
         {
             this.info = info;
         }
 
-        public async Task sendEmail(String email, String info)
+        public async Task sendEmail(string email, string info)
         {
             await bot.Main(email, info);
+        }
         public bool checkRecords()
         {
             DB.setupConnection();
              return DB.checkRecords(TUID);
 
         }
+        
         public DataSet GetRecords()
         {
             DataSet ds = new DataSet();

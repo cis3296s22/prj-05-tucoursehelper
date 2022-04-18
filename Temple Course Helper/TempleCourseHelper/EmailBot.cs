@@ -7,9 +7,10 @@ namespace TempleCourseHelper
 {
     internal class EmailBot
     {      
-        String subjectContent = "Temple Courses";
+        private string subjectContent = "Temple Courses";
+        private string htmlContent = "";
 
-        public async Task Main(String toEmail, String info)
+        public async Task Main(string toEmail, string info)
         {
             var apiKey = Key.getKey();
             var client = new SendGridClient(apiKey);
