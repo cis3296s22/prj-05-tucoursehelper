@@ -157,12 +157,15 @@ namespace TempleCourseHelper
         public async Task sendEmail(String email, String info)
         {
             await bot.Main(email, info);
+        }
+
         public bool checkRecords()
         {
             DB.setupConnection();
              return DB.checkRecords(TUID);
 
         }
+        
         public DataSet GetRecords()
         {
             DataSet ds = new DataSet();
