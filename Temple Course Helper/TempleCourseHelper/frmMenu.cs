@@ -69,7 +69,7 @@ namespace TempleCourseHelper
 
                 if (CourseSchedule == null)
                 {
-                    searchResult = "Error, you either entered incorrect course letters or the class doesn't exist currently";
+                    MessageBox.Show("Error, you either entered incorrect course letters or the class doesn't exist currently");
                 }
                 else
                 {
