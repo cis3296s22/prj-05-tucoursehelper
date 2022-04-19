@@ -57,6 +57,8 @@ namespace TempleCourseHelper
                 }
                 catch (Exception ex)
                 {
+                    driver.Navigate().GoToUrl(CoursicleURL);
+                    Thread.Sleep(500);
                     driver.FindElement(By.Id("searchBox")).SendKeys(courseLetters[i] + " " + courseNumbers[i]);
                     Thread.Sleep(500);
                 }
