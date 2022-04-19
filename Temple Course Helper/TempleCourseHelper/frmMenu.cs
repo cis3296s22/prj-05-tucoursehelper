@@ -236,6 +236,9 @@ namespace TempleCourseHelper
             enableControl(cbCourse2);
             enableControl(cbCourse3);
             enableControl(cbCourse4);
+            enableControl(dgvResults);
+
+            dgvResults.DataSource = (worker.GetRecords()).Tables["SearchResults"].DefaultView;
         }
     
 
