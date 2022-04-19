@@ -96,6 +96,7 @@ namespace TempleCourseHelper
                     enableControl(lblEmail);
                     enableControl(txtBoxEmail);
                     enableControl(btnSend);
+                    enableControl(btnSearchAgain);
 
                     //Reset i
                     i = 0;
@@ -206,6 +207,38 @@ namespace TempleCourseHelper
             ctrl.Enabled = true;
             ctrl.Visible = true;
         }
+
+        private void dgvResults_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnSearchAgain_Click(object sender, EventArgs e)
+        {
+            disableControl(lblResults1);
+            disableControl(lblResults2);
+            disableControl(lblResults3);
+            disableControl(lblResults4);
+            disableControl(lblEmail);
+            disableControl(txtBoxEmail);
+            disableControl(btnSend);
+            disableControl(btnSearchAgain);
+            enableControl(lblCourse1);
+            enableControl(lblCourse2);
+            enableControl(lblCourse3);
+            enableControl(lblCourse4);
+            enableControl(btnSearch);
+            enableControl(txtBoxCourse1);
+            enableControl(txtBoxCourse2);
+            enableControl(txtBoxCourse3);
+            enableControl(txtBoxCourse4);
+            enableControl(cbCourse1);
+            enableControl(cbCourse2);
+            enableControl(cbCourse3);
+            enableControl(cbCourse4);
+        }
+    
+
         private void frmMenu_Load(object sender, EventArgs e)
         {
             this.Size = new Size(500,500);
@@ -222,7 +255,7 @@ namespace TempleCourseHelper
             //checks if input is valid
             for (int i = 0; i < IDChecker.Length; i++)
             {
-                if (!char.IsNumber(IDChecker[i]) || IDChecker.Length == 9)
+                if (!char.IsNumber(IDChecker[i]) || IDChecker.Length != 9)
                 {
                     checkerPass = false;
                     break;

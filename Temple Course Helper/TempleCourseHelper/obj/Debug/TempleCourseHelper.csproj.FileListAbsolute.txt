@@ -118,3 +118,7 @@ C:\Users\akozh\Desktop\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHe
 C:\Users\akozh\Desktop\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\StarkbankEcdsa.dll
 C:\Users\akozh\Desktop\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\SendGrid.pdb
 C:\Users\akozh\Desktop\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\SendGrid.xml
+C:\Users\Sof\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\SendGrid.dll
+C:\Users\Sof\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\StarkbankEcdsa.dll
+C:\Users\Sof\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\SendGrid.pdb
+C:\Users\Sof\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\SendGrid.xml
