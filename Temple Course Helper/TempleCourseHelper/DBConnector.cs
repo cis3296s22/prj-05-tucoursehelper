@@ -44,7 +44,6 @@ namespace TempleCourseHelper
             foreach (KeyValuePair<int, Dictionary<int, CourseDetails>> kd in CourseSchedule)
             {
                 int checker = 1;
-                //Clear the search result
                 var courseSections = kd.Value;
                 foreach (KeyValuePair<int, CourseDetails> kv in courseSections)
                 {
@@ -86,6 +85,35 @@ namespace TempleCourseHelper
             myDataAdapter.Fill(myDataSet, "SearchResults");
             return myDataSet;
 
+        }
+
+        public void UpdateSearch(string TUID, Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule)
+        {
+            int i = 1;
+            foreach (KeyValuePair<int, Dictionary<int, CourseDetails>> kd in CourseSchedule)
+            {
+                int checker = 1;
+                var courseSections = kd.Value;
+                foreach (KeyValuePair<int, CourseDetails> kv in courseSections)
+                {
+                    if (checker == 1)
+                    {
+                        myCommand.CommandType = CommandType.Text;
+                        myCommand.CommandText = "UPDATE UserSearches SET CourseCode = @crscode, CourseName = @crsn, CourseCredit = @crscred, CourseDesc = @crsdesc WHERE TUID = @tuid";
+                        myCommand.Connection = myConnection;
+                        myConnection.Open();
+                        myCommand.Parameters.AddWithValue("@crscode", kv.Value.getCourseCode());
+                        myCommand.Parameters.AddWithValue("@crsn", kv.Value.getCourseName());
+                        myCommand.Parameters.AddWithValue("@crscred", kv.Value.getCourseCredit());
+                        myCommand.Parameters.AddWithValue("@crsdesc", Regex.Replace(kv.Value.getCourseDescription(), "'", ""));
+                        myCommand.Parameters.AddWithValue("@tuid", (TUID + "-0" + i));
+                        myCommand.ExecuteNonQuery();
+                        myConnection.Close();
+                    }
+                    checker++;
+                }
+                i++;
+            }
         }
     }
 }

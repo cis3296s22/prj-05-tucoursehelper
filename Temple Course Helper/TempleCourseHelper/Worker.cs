@@ -33,7 +33,7 @@ namespace TempleCourseHelper
 
             //Add chrom exe location
             //driver = new ChromeDriver(chromeOptions);
-            IWebDriver driver = new ChromeDriver(@"../../" + "/Resources/",chromeOptions);
+            IWebDriver driver = new ChromeDriver(@"../../" + "/Resources/");
 
             //Goes to Coursicle
             driver.Navigate().GoToUrl(CoursicleURL);
@@ -135,8 +135,15 @@ namespace TempleCourseHelper
             //Call Setup DB connection
             DB.setupConnection();
 
-            //adding data to database
-            DB.AddDataToDB(TUID,CourseSchedule);
+            if (checkRecords())
+            {
+                UpdateRecords();
+            }
+            else
+            {
+                //adding data to database
+                DB.AddDataToDB(TUID, CourseSchedule);
+            }
 
             driver.Close();
             return CourseSchedule;
@@ -168,6 +175,7 @@ namespace TempleCourseHelper
         }
         public bool checkRecords()
         {
+            //Call Setup DB connection
             DB.setupConnection();
              return DB.checkRecords(TUID);
 
@@ -181,6 +189,16 @@ namespace TempleCourseHelper
                 ds = DB.GetRecords(TUID);
             }
             return ds;
+        }
+
+        public void UpdateRecords()
+        {
+            //Call Setup DB connection
+            DB.setupConnection();
+
+            //call update search 
+            DB.UpdateSearch(TUID, CourseSchedule);
+
         }
     }
 }
