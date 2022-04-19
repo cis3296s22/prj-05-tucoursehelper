@@ -77,6 +77,7 @@ namespace TempleCourseHelper
                         //If the first section doesnt exist, null will be returned else there is no more sections to add
                         if (section == 1)
                         {
+                            driver.Close();
                             return null;
                         }
                         else
