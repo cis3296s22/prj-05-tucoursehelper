@@ -14,7 +14,7 @@ using System.Data.OleDb;
 namespace TempleCourseHelper
 {
 
-    internal class DBConnector
+    public class DBConnector
     {
         private OleDbConnection myConnection;
         private OleDbDataAdapter myDataAdapter;

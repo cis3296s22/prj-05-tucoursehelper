@@ -5,7 +5,7 @@ using SendGrid.Helpers.Mail;
 
 namespace TempleCourseHelper
 {
-    internal class EmailBot
+    public  class EmailBot
     {      
         private string subjectContent = "Temple Courses";
         private string htmlContent = "";
