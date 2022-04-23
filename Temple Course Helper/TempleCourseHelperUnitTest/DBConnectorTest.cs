@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace TempleCourseHelperUnitTest
+namespace TempleCourseHelper.UnitTests
 {
     [TestClass]
     public class DBConnectorTest

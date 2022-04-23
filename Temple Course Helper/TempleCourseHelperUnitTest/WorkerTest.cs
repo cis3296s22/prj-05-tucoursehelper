@@ -2,7 +2,7 @@
 using System;
 using TempleCourseHelper;
 
-namespace TempleCourseHelperUnitTest
+namespace TempleCourseHelper.UnitTests
 {
     [TestClass]
     public class WorkerTest
