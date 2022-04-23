@@ -20,6 +20,12 @@ namespace TempleCourseHelper
         private OleDbDataAdapter myDataAdapter;
         private OleDbCommand myCommand = new OleDbCommand();
         private DataSet myDataSet;
+
+        public static bool checkRecords()
+        {
+            throw new NotImplementedException();
+        }
+
         private string strSQL;
 
         public void setupConnection()
