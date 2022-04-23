@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace TempleCourseHelper
 {
-    internal class CourseDetails
+    public class CourseDetails
     {
         private string courseName, courseCode, courseDescription, courseProfessor, professorRating, courseTime, courseSection, courseDays, courseCredits; 
 

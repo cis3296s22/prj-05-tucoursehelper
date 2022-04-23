@@ -14,12 +14,18 @@ using System.Data.OleDb;
 namespace TempleCourseHelper
 {
 
-    internal class DBConnector
+    public class DBConnector
     {
         private OleDbConnection myConnection;
         private OleDbDataAdapter myDataAdapter;
         private OleDbCommand myCommand = new OleDbCommand();
         private DataSet myDataSet;
+
+        public static bool checkRecords()
+        {
+            throw new NotImplementedException();
+        }
+
         private string strSQL;
 
         public void setupConnection()

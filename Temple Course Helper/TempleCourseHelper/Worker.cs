@@ -13,7 +13,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace TempleCourseHelper
 {
-    internal class Worker
+    public class Worker
     {   
         private EmailBot bot = new EmailBot();
         private DBConnector DB = new DBConnector();

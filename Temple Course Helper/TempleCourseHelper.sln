@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempleCourseHelper", "TempleCourseHelper\TempleCourseHelper.csproj", "{6FDA2CCF-2D41-4572-8030-BE365D1A837F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TempleCourseHelper.Tests", "TempleCourseHelperUnitTest\TempleCourseHelper.Tests.csproj", "{9CA2A9DE-F458-44D3-9336-04BA7A2DB903}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6FDA2CCF-2D41-4572-8030-BE365D1A837F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FDA2CCF-2D41-4572-8030-BE365D1A837F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FDA2CCF-2D41-4572-8030-BE365D1A837F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CA2A9DE-F458-44D3-9336-04BA7A2DB903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA2A9DE-F458-44D3-9336-04BA7A2DB903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA2A9DE-F458-44D3-9336-04BA7A2DB903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA2A9DE-F458-44D3-9336-04BA7A2DB903}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
