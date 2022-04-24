@@ -13,6 +13,9 @@ using System.Data.OleDb;
 
 namespace TempleCourseHelper
 {
+    /// <summary>  
+    /// The class that connects the Database with our program and updates it or pulls the info when needed. 
+    /// </summary>  
 
     public class DBConnector
     {
@@ -21,6 +24,10 @@ namespace TempleCourseHelper
         private OleDbCommand myCommand = new OleDbCommand();
         private DataSet myDataSet;
 
+        /// <summary>  
+        /// Checks if there is record from previous search (Throws Exception). 
+        /// </summary>   
+        /// <returns>Returns yes or true based on the existance of previous record.</returns>  
         public static bool checkRecords()
         {
             throw new NotImplementedException();
@@ -28,6 +35,9 @@ namespace TempleCourseHelper
 
         private string strSQL;
 
+        /// <summary>  
+        /// Sets up the connection with the Database.
+        /// </summary>  
         public void setupConnection()
         {
             myConnection = new OleDbConnection("provider=Microsoft.ACE.OLEDB.12.0;Data Source=TempleUserDB.accdb;");
@@ -37,6 +47,10 @@ namespace TempleCourseHelper
             myDataAdapter.Fill(myDataSet, "UserSearchesTable");
         }
 
+        /// <summary>  
+        /// Closes and sets up a new connection with the database.
+        /// Used when updating the Database.
+        /// </summary>  
         public void OpenCloseConnection()
         {
             myCommand.Connection = myConnection;
@@ -44,6 +58,12 @@ namespace TempleCourseHelper
             myCommand.ExecuteNonQuery();
             myConnection.Close();
         }
+
+        /// <summary>  
+        /// Adds the data into the Database for the specific user.  
+        /// </summary>  
+        /// <param name="TUID">User's ID.</param>  
+        /// <param name="CourseSchedule">Dictionary of dictionaries with the different classes and their different sections.</param>  
         public void AddDataToDB(string TUID, Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule)
         {
             int i = 1;
@@ -66,6 +86,12 @@ namespace TempleCourseHelper
                 i++;
             }
         }
+
+        /// <summary>  
+        /// Checks for existing record for the specific user based on their ID. 
+        /// </summary>  
+        /// <param name="TUID">User's ID.</param>   
+        /// <returns>True or false based on the existance of record.</returns>  
         public bool checkRecords(string TUID)
         {
             myCommand.CommandType = CommandType.Text;
@@ -82,6 +108,11 @@ namespace TempleCourseHelper
             
         }
 
+        /// <summary>  
+        /// Gets the specific user's record. 
+        /// </summary> 
+        /// <param name="TUID">User's ID.</param>
+        /// <returns>Dataset with the user's record.</returns>  
         public DataSet GetRecords(string TUID)
         {
             myCommand.CommandType = CommandType.Text;
@@ -93,6 +124,11 @@ namespace TempleCourseHelper
 
         }
 
+        /// <summary>  
+        /// Updates the Database for the user with their new search.  
+        /// </summary>  
+        /// <param name="TUID">user's ID.</param>  
+        /// <param name="CourseSchedule">The new searched classes.</param>  
         public void UpdateSearch(string TUID, Dictionary<int, Dictionary<int, CourseDetails>> CourseSchedule)
         {
             myCommand.CommandType = CommandType.Text;

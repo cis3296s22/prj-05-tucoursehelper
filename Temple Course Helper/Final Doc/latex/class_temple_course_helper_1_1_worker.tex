@@ -1,0 +1,177 @@
+\hypertarget{class_temple_course_helper_1_1_worker}{}\doxysection{Temple\+Course\+Helper.\+Worker Class Reference}
+\label{class_temple_course_helper_1_1_worker}\index{TempleCourseHelper.Worker@{TempleCourseHelper.Worker}}
+
+
+~\newline
+ \mbox{\hyperlink{class_temple_course_helper_1_1_worker}{Worker}} Class that handles the web scrapping and calling other classes to handle the other jobs.(Updating Database, sending email to user, etc.)  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Dictionary$<$ int, Dictionary$<$ int, \mbox{\hyperlink{class_temple_course_helper_1_1_course_details}{Course\+Details}} $>$ $>$ \mbox{\hyperlink{class_temple_course_helper_1_1_worker_ae3cb1351eee45c5dc8adaa5f33c215b0}{search\+Catalog}} (string\mbox{[}$\,$\mbox{]} course\+Letters, string\mbox{[}$\,$\mbox{]} course\+Numbers)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Search\+Catalog class handles the web scrapping and inserting the information into the dictioanry. It is also updating the Database with the user\textquotesingle{}s search and calls the email bot to send an email to the user if necessary. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_temple_course_helper_1_1_worker_a8c27dbf5fb69d3ed75c4d9f52de957c3}{set\+TUID}} (string TUID)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Sets the user\textquotesingle{}s ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_temple_course_helper_1_1_worker_abe2a007da391d7499c5b963d2021829e}{set\+Email}} (string email)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Sets the user\textquotesingle{}s email. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_temple_course_helper_1_1_worker_aa9ed85f03c592846f4f3824b5b785641}{set\+Info}} (string info)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Sets the necessary info we need in order to send the email. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_temple_course_helper_1_1_worker_aa33700e9f3b8921f820e61abc56a582e}{send\+Email}} (string email, string info)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Calls the email bot to send the email to the user. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_temple_course_helper_1_1_worker_a840bbf61da04a1049d7376b568690b74}{check\+Records}} ()
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Checks if there is Record for the specific user. \end{DoxyCompactList}\item 
+Data\+Set \mbox{\hyperlink{class_temple_course_helper_1_1_worker_a946965ccb7be68d49c407f87ed812eae}{Get\+Records}} ()
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Gets the Records for the specific user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_temple_course_helper_1_1_worker_a8be48af6ad19f4a06fa24234de4e36ab}{Update\+Records}} ()
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Calls the Database instance to update the records searched by the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+~\newline
+ \mbox{\hyperlink{class_temple_course_helper_1_1_worker}{Worker}} Class that handles the web scrapping and calling other classes to handle the other jobs.(Updating Database, sending email to user, etc.) 
+
+~\newline
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_temple_course_helper_1_1_worker_a840bbf61da04a1049d7376b568690b74}\label{class_temple_course_helper_1_1_worker_a840bbf61da04a1049d7376b568690b74}} 
+\index{TempleCourseHelper.Worker@{TempleCourseHelper.Worker}!checkRecords@{checkRecords}}
+\index{checkRecords@{checkRecords}!TempleCourseHelper.Worker@{TempleCourseHelper.Worker}}
+\doxysubsubsection{\texorpdfstring{checkRecords()}{checkRecords()}}
+{\footnotesize\ttfamily bool Temple\+Course\+Helper.\+Worker.\+check\+Records (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Checks if there is Record for the specific user. 
+
+\begin{DoxyReturn}{Returns}
+True or False for the specific user ID. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_temple_course_helper_1_1_worker_a946965ccb7be68d49c407f87ed812eae}\label{class_temple_course_helper_1_1_worker_a946965ccb7be68d49c407f87ed812eae}} 
+\index{TempleCourseHelper.Worker@{TempleCourseHelper.Worker}!GetRecords@{GetRecords}}
+\index{GetRecords@{GetRecords}!TempleCourseHelper.Worker@{TempleCourseHelper.Worker}}
+\doxysubsubsection{\texorpdfstring{GetRecords()}{GetRecords()}}
+{\footnotesize\ttfamily Data\+Set Temple\+Course\+Helper.\+Worker.\+Get\+Records (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Gets the Records for the specific user. 
+
+\begin{DoxyReturn}{Returns}
+A dataset with the user\textquotesingle{}s searched records. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_temple_course_helper_1_1_worker_ae3cb1351eee45c5dc8adaa5f33c215b0}\label{class_temple_course_helper_1_1_worker_ae3cb1351eee45c5dc8adaa5f33c215b0}} 
+\index{TempleCourseHelper.Worker@{TempleCourseHelper.Worker}!searchCatalog@{searchCatalog}}
+\index{searchCatalog@{searchCatalog}!TempleCourseHelper.Worker@{TempleCourseHelper.Worker}}
+\doxysubsubsection{\texorpdfstring{searchCatalog()}{searchCatalog()}}
+{\footnotesize\ttfamily Dictionary$<$ int, Dictionary$<$ int, \mbox{\hyperlink{class_temple_course_helper_1_1_course_details}{Course\+Details}} $>$ $>$ Temple\+Course\+Helper.\+Worker.\+search\+Catalog (\begin{DoxyParamCaption}\item[{string\mbox{[}$\,$\mbox{]}}]{course\+Letters,  }\item[{string\mbox{[}$\,$\mbox{]}}]{course\+Numbers }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Search\+Catalog class handles the web scrapping and inserting the information into the dictioanry. It is also updating the Database with the user\textquotesingle{}s search and calls the email bot to send an email to the user if necessary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em course\+Letters} & The first lettrs for the 4 different classes the user wants to search.\\
+\hline
+{\em course\+Numbers} & The 4 digit numbers for the 5 classes the user wants to search.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a Dictionary of Dictionaries with the 4 classes searched and their different sections if exist. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_temple_course_helper_1_1_worker_aa33700e9f3b8921f820e61abc56a582e}\label{class_temple_course_helper_1_1_worker_aa33700e9f3b8921f820e61abc56a582e}} 
+\index{TempleCourseHelper.Worker@{TempleCourseHelper.Worker}!sendEmail@{sendEmail}}
+\index{sendEmail@{sendEmail}!TempleCourseHelper.Worker@{TempleCourseHelper.Worker}}
+\doxysubsubsection{\texorpdfstring{sendEmail()}{sendEmail()}}
+{\footnotesize\ttfamily async Task Temple\+Course\+Helper.\+Worker.\+send\+Email (\begin{DoxyParamCaption}\item[{string}]{email,  }\item[{string}]{info }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Calls the email bot to send the email to the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The unique user\textquotesingle{}s email. \\
+\hline
+{\em info} & The info we are sending. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_temple_course_helper_1_1_worker_abe2a007da391d7499c5b963d2021829e}\label{class_temple_course_helper_1_1_worker_abe2a007da391d7499c5b963d2021829e}} 
+\index{TempleCourseHelper.Worker@{TempleCourseHelper.Worker}!setEmail@{setEmail}}
+\index{setEmail@{setEmail}!TempleCourseHelper.Worker@{TempleCourseHelper.Worker}}
+\doxysubsubsection{\texorpdfstring{setEmail()}{setEmail()}}
+{\footnotesize\ttfamily void Temple\+Course\+Helper.\+Worker.\+set\+Email (\begin{DoxyParamCaption}\item[{string}]{email }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Sets the user\textquotesingle{}s email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The unique user email. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_temple_course_helper_1_1_worker_aa9ed85f03c592846f4f3824b5b785641}\label{class_temple_course_helper_1_1_worker_aa9ed85f03c592846f4f3824b5b785641}} 
+\index{TempleCourseHelper.Worker@{TempleCourseHelper.Worker}!setInfo@{setInfo}}
+\index{setInfo@{setInfo}!TempleCourseHelper.Worker@{TempleCourseHelper.Worker}}
+\doxysubsubsection{\texorpdfstring{setInfo()}{setInfo()}}
+{\footnotesize\ttfamily void Temple\+Course\+Helper.\+Worker.\+set\+Info (\begin{DoxyParamCaption}\item[{string}]{info }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Sets the necessary info we need in order to send the email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & The info we are going to send to the user.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_temple_course_helper_1_1_worker_a8c27dbf5fb69d3ed75c4d9f52de957c3}\label{class_temple_course_helper_1_1_worker_a8c27dbf5fb69d3ed75c4d9f52de957c3}} 
+\index{TempleCourseHelper.Worker@{TempleCourseHelper.Worker}!setTUID@{setTUID}}
+\index{setTUID@{setTUID}!TempleCourseHelper.Worker@{TempleCourseHelper.Worker}}
+\doxysubsubsection{\texorpdfstring{setTUID()}{setTUID()}}
+{\footnotesize\ttfamily void Temple\+Course\+Helper.\+Worker.\+set\+TUID (\begin{DoxyParamCaption}\item[{string}]{TUID }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Sets the user\textquotesingle{}s ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em TUID} & The unique (9 digit) user ID. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_temple_course_helper_1_1_worker_a8be48af6ad19f4a06fa24234de4e36ab}\label{class_temple_course_helper_1_1_worker_a8be48af6ad19f4a06fa24234de4e36ab}} 
+\index{TempleCourseHelper.Worker@{TempleCourseHelper.Worker}!UpdateRecords@{UpdateRecords}}
+\index{UpdateRecords@{UpdateRecords}!TempleCourseHelper.Worker@{TempleCourseHelper.Worker}}
+\doxysubsubsection{\texorpdfstring{UpdateRecords()}{UpdateRecords()}}
+{\footnotesize\ttfamily void Temple\+Course\+Helper.\+Worker.\+Update\+Records (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Calls the Database instance to update the records searched by the user. 
+
+~\newline
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Swtir/\+Documents/\+Git\+Hub/prj-\/05-\/tucoursehelper/\+Temple Course Helper/\+Temple\+Course\+Helper/Worker.\+cs\end{DoxyCompactItemize}

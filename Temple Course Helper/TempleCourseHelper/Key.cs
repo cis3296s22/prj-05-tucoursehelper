@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace TempleCourseHelper
 {
+    /// <summary>  
+    /// In order to get flagged by Twillio we had to separate the API keyand combine it in a string variable manually.
+    /// </summary> 
     internal class Key
     {
         public static string getKey()
