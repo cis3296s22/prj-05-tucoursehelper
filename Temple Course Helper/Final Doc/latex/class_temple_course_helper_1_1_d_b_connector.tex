@@ -1,0 +1,184 @@
+\hypertarget{class_temple_course_helper_1_1_d_b_connector}{}\doxysection{Temple\+Course\+Helper.\+DBConnector Class Reference}
+\label{class_temple_course_helper_1_1_d_b_connector}\index{TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}}
+
+
+~\newline
+ The class that connects the Database with our program and updates it or pulls the info when needed.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_temple_course_helper_1_1_d_b_connector_a53a252b658fe2f7ba26f10b497c3f991}{setup\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Sets up the connection with the Database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_temple_course_helper_1_1_d_b_connector_a77071df6a472c8fe167c27858f842ba8}{Open\+Close\+Connection}} ()
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Closes and sets up a new connection with the database. Used when updating the Database. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_temple_course_helper_1_1_d_b_connector_a7b575851a1f56ff7dd3e88785f23e71a}{Add\+Data\+To\+DB}} (string TUID, Dictionary$<$ int, Dictionary$<$ int, \mbox{\hyperlink{class_temple_course_helper_1_1_course_details}{Course\+Details}} $>$ $>$ Course\+Schedule)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Adds the data into the Database for the specific user. ~\newline
+ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_temple_course_helper_1_1_d_b_connector_afd6f1d6ee36b263aec0513949089953f}{check\+Records}} (string TUID)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Checks for existing record for the specific user based on their ID. \end{DoxyCompactList}\item 
+Data\+Set \mbox{\hyperlink{class_temple_course_helper_1_1_d_b_connector_a2404b0a449c49842401ab3035fae5a47}{Get\+Records}} (string TUID)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Gets the specific user\textquotesingle{}s record. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_temple_course_helper_1_1_d_b_connector_a6dd71f815965d9b884c7ac092d152d66}{Update\+Search}} (string TUID, Dictionary$<$ int, Dictionary$<$ int, \mbox{\hyperlink{class_temple_course_helper_1_1_course_details}{Course\+Details}} $>$ $>$ Course\+Schedule)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Updates the Database for the user with their new search. ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_temple_course_helper_1_1_d_b_connector_a369a8785f17ee5e107bb8392b5be1851}{check\+Records}} ()
+\begin{DoxyCompactList}\small\item\em ~\newline
+ Checks if there is record from previous search (Throws Exception). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+~\newline
+ The class that connects the Database with our program and updates it or pulls the info when needed. 
+
+~\newline
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_temple_course_helper_1_1_d_b_connector_a7b575851a1f56ff7dd3e88785f23e71a}\label{class_temple_course_helper_1_1_d_b_connector_a7b575851a1f56ff7dd3e88785f23e71a}} 
+\index{TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}!AddDataToDB@{AddDataToDB}}
+\index{AddDataToDB@{AddDataToDB}!TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}}
+\doxysubsubsection{\texorpdfstring{AddDataToDB()}{AddDataToDB()}}
+{\footnotesize\ttfamily void Temple\+Course\+Helper.\+DBConnector.\+Add\+Data\+To\+DB (\begin{DoxyParamCaption}\item[{string}]{TUID,  }\item[{Dictionary$<$ int, Dictionary$<$ int, \mbox{\hyperlink{class_temple_course_helper_1_1_course_details}{Course\+Details}} $>$ $>$}]{Course\+Schedule }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Adds the data into the Database for the specific user. ~\newline
+ 
+
+~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em TUID} & User\textquotesingle{}s ID.\\
+\hline
+\end{DoxyParams}
+~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em Course\+Schedule} & Dictionary of dictionaries with the different classes and their different sections.\\
+\hline
+\end{DoxyParams}
+~\newline
+ \mbox{\Hypertarget{class_temple_course_helper_1_1_d_b_connector_a369a8785f17ee5e107bb8392b5be1851}\label{class_temple_course_helper_1_1_d_b_connector_a369a8785f17ee5e107bb8392b5be1851}} 
+\index{TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}!checkRecords@{checkRecords}}
+\index{checkRecords@{checkRecords}!TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}}
+\doxysubsubsection{\texorpdfstring{checkRecords()}{checkRecords()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static bool Temple\+Course\+Helper.\+DBConnector.\+check\+Records (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+~\newline
+ Checks if there is record from previous search (Throws Exception). 
+
+~\newline
+ \begin{DoxyReturn}{Returns}
+Returns yes or true based on the existance of previous record.
+\end{DoxyReturn}
+~\newline
+ \mbox{\Hypertarget{class_temple_course_helper_1_1_d_b_connector_afd6f1d6ee36b263aec0513949089953f}\label{class_temple_course_helper_1_1_d_b_connector_afd6f1d6ee36b263aec0513949089953f}} 
+\index{TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}!checkRecords@{checkRecords}}
+\index{checkRecords@{checkRecords}!TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}}
+\doxysubsubsection{\texorpdfstring{checkRecords()}{checkRecords()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Temple\+Course\+Helper.\+DBConnector.\+check\+Records (\begin{DoxyParamCaption}\item[{string}]{TUID }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Checks for existing record for the specific user based on their ID. 
+
+~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em TUID} & User\textquotesingle{}s ID.\\
+\hline
+\end{DoxyParams}
+~\newline
+ \begin{DoxyReturn}{Returns}
+True or false based on the existance of record.
+\end{DoxyReturn}
+~\newline
+ \mbox{\Hypertarget{class_temple_course_helper_1_1_d_b_connector_a2404b0a449c49842401ab3035fae5a47}\label{class_temple_course_helper_1_1_d_b_connector_a2404b0a449c49842401ab3035fae5a47}} 
+\index{TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}!GetRecords@{GetRecords}}
+\index{GetRecords@{GetRecords}!TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}}
+\doxysubsubsection{\texorpdfstring{GetRecords()}{GetRecords()}}
+{\footnotesize\ttfamily Data\+Set Temple\+Course\+Helper.\+DBConnector.\+Get\+Records (\begin{DoxyParamCaption}\item[{string}]{TUID }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Gets the specific user\textquotesingle{}s record. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em TUID} & User\textquotesingle{}s ID.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Dataset with the user\textquotesingle{}s record.
+\end{DoxyReturn}
+~\newline
+ \mbox{\Hypertarget{class_temple_course_helper_1_1_d_b_connector_a77071df6a472c8fe167c27858f842ba8}\label{class_temple_course_helper_1_1_d_b_connector_a77071df6a472c8fe167c27858f842ba8}} 
+\index{TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}!OpenCloseConnection@{OpenCloseConnection}}
+\index{OpenCloseConnection@{OpenCloseConnection}!TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}}
+\doxysubsubsection{\texorpdfstring{OpenCloseConnection()}{OpenCloseConnection()}}
+{\footnotesize\ttfamily void Temple\+Course\+Helper.\+DBConnector.\+Open\+Close\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Closes and sets up a new connection with the database. Used when updating the Database. 
+
+~\newline
+ \mbox{\Hypertarget{class_temple_course_helper_1_1_d_b_connector_a53a252b658fe2f7ba26f10b497c3f991}\label{class_temple_course_helper_1_1_d_b_connector_a53a252b658fe2f7ba26f10b497c3f991}} 
+\index{TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}!setupConnection@{setupConnection}}
+\index{setupConnection@{setupConnection}!TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}}
+\doxysubsubsection{\texorpdfstring{setupConnection()}{setupConnection()}}
+{\footnotesize\ttfamily void Temple\+Course\+Helper.\+DBConnector.\+setup\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Sets up the connection with the Database. 
+
+~\newline
+ \mbox{\Hypertarget{class_temple_course_helper_1_1_d_b_connector_a6dd71f815965d9b884c7ac092d152d66}\label{class_temple_course_helper_1_1_d_b_connector_a6dd71f815965d9b884c7ac092d152d66}} 
+\index{TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}!UpdateSearch@{UpdateSearch}}
+\index{UpdateSearch@{UpdateSearch}!TempleCourseHelper.DBConnector@{TempleCourseHelper.DBConnector}}
+\doxysubsubsection{\texorpdfstring{UpdateSearch()}{UpdateSearch()}}
+{\footnotesize\ttfamily void Temple\+Course\+Helper.\+DBConnector.\+Update\+Search (\begin{DoxyParamCaption}\item[{string}]{TUID,  }\item[{Dictionary$<$ int, Dictionary$<$ int, \mbox{\hyperlink{class_temple_course_helper_1_1_course_details}{Course\+Details}} $>$ $>$}]{Course\+Schedule }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ Updates the Database for the user with their new search. ~\newline
+ 
+
+~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em TUID} & user\textquotesingle{}s ID.\\
+\hline
+\end{DoxyParams}
+~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em Course\+Schedule} & The new searched classes.\\
+\hline
+\end{DoxyParams}
+~\newline
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Swtir/\+Documents/\+Git\+Hub/prj-\/05-\/tucoursehelper/\+Temple Course Helper/\+Temple\+Course\+Helper/DBConnector.\+cs\end{DoxyCompactItemize}
