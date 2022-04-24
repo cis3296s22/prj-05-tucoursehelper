@@ -39,3 +39,4 @@ C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\Templ
 C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelperUnitTest\bin\Debug\zh\Hangfire.Core.resources.dll
 C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelperUnitTest\bin\Debug\zh-TW\Hangfire.Core.resources.dll
 C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelperUnitTest\obj\Debug\TempleCourseHelper.Tests.csproj.CopyComplete
+C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelperUnitTest\bin\Debug\TempleCourseHelper.xml
