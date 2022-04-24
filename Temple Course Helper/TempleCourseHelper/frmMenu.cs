@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace TempleCourseHelper
 {
+    /// <summary>  
+    /// frmMenu is the class for the GUI. When every button on the interface is pressed, its action is handled by this class.
+    /// </summary>  
     public partial class frmMenu : Form
     {
         //Worker Class
@@ -36,11 +30,20 @@ namespace TempleCourseHelper
             "@msn.com"
         };
 
+        /// <summary>  
+        /// Constructor.
+        /// </summary> 
         public frmMenu()
         {
             InitializeComponent();
         }
 
+        /// <summary>  
+        /// Search button from the Interface.
+        /// When this button is pressed, the input will be validated just to make sure all 4 boxes are filled and sets the letters and the numbers.
+        /// </summary>  
+        /// <param name="sender">Parameter used by default to specify the action and the event when creating the class.</param>  
+        /// <param name="e">Parameter used by default to specify the action and the event when creating the class.</param>  
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //Checks if all textboxes have a valid input
@@ -148,13 +151,20 @@ namespace TempleCourseHelper
                 }
             }
         }
+
+        /// <summary>  
+        /// Send button from the Interface.
+        /// When this button is pressed, the email will be sent to the user unless there is an invalid entry.
+        /// </summary>  
+        /// <param name="sender">Parameter used by default to specify the action and the event when creating the class.</param>  
+        /// <param name="e">Parameter used by default to specify the action and the event when creating the class.</param> 
         private async void btnSend_Click(object sender, EventArgs e)
-        {   
+        {
             if (badInput(txtBoxEmail))
             {
                 MessageBox.Show("Bot is empty or email is invalid");
             }
-            else 
+            else
             {
                 //Code to send via Twilio
                 string email = txtBoxEmail.Text;
@@ -163,6 +173,12 @@ namespace TempleCourseHelper
                 MessageBox.Show("Email has been send to: " + email);
             }
         }
+
+        /// <summary>  
+        /// Validating the user's entry when searching for the classes.
+        /// </summary>  
+        /// <param name="ctrl">Parameter used by default.</param>
+        /// <returns> Returns Yes or No if the input is valid or not.</returns>
         private bool badInput(Control ctrl)
         {
             //Checks input for course codes
@@ -197,22 +213,33 @@ namespace TempleCourseHelper
             }
             return true;
         }
+
+        /// <summary>  
+        /// Default class to handle the visibility if the components on the Interface.
+        /// </summary>  
+        /// <param name="ctrl">Parameter used by default.</param>  
         private void disableControl(Control ctrl)
         {
             ctrl.Enabled = false;
             ctrl.Visible = false;
         }
+
+        /// <summary>  
+        /// Default class to handle the visibility if the components on the Interface.
+        /// </summary>  
+        /// <param name="ctrl">Parameter used by default.</param>  
         private void enableControl(Control ctrl)
         {
             ctrl.Enabled = true;
             ctrl.Visible = true;
         }
 
-        private void dgvResults_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
+        /// <summary>  
+        /// Search Again button from the Interface.
+        /// When this button is pressed, the user will be able to Search Again for the class they want.
+        /// </summary>  
+        /// <param name="sender">Parameter used by default to specify the action and the event when creating the class.</param>  
+        /// <param name="e">Parameter used by default to specify the action and the event when creating the class.</param> 
         private void btnSearchAgain_Click(object sender, EventArgs e)
         {
             disableControl(lblResults1);
@@ -240,8 +267,13 @@ namespace TempleCourseHelper
 
             dgvResults.DataSource = (worker.GetRecords()).Tables["SearchResults"].DefaultView;
         }
-    
 
+        /// <summary>  
+        /// Send button from the Interface.
+        /// When this button is pressed, the email will be sent to the user unless there is an invalid entry.
+        /// </summary>  
+        /// <param name="sender">Parameter used by default.</param>  
+        /// <param name="e">Parameter used by default.</param> 
         private void frmMenu_Load(object sender, EventArgs e)
         {
             this.Size = new Size(500,500);
@@ -250,6 +282,14 @@ namespace TempleCourseHelper
             txtBoxTUID.Location = new Point(centerW-30, centerH-33);
             btnEnterID.Location = new Point(centerW -30 , centerH);
         }
+
+        /// <summary>  
+        /// Enter ID button from interface.
+        /// When this button is pressed, the user's ID will be validated for its length(9 digits) and then search if there is previous record.
+        /// If there is, the previous search will be displayed on the next page, if not then they will be a new user.
+        /// </summary>  
+        /// <param name="sender">Parameter used by default to specify the action and the event when creating the class.</param>  
+        /// <param name="e">Parameter used by default to specify the action and the event when creating the class.</param> 
         private void btnEnterID_Click(object sender, EventArgs e)
         {
             //replaces all whitespaces \s with empty strings

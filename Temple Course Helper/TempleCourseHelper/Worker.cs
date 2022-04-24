@@ -13,6 +13,9 @@ using OpenQA.Selenium.Support.UI;
 
 namespace TempleCourseHelper
 {
+    /// <summary>  
+    /// Worker Class that handles the web scrapping and calling other classes to handle the other jobs.(Updating Database, sending email to user, etc.) 
+    /// </summary>  
     public class Worker
     {   
         private EmailBot bot = new EmailBot();
@@ -24,6 +27,13 @@ namespace TempleCourseHelper
         private string CoursicleURL = "https://www.coursicle.com/temple/";
         private string TUID = "", email = "", info = "";
 
+        /// <summary>  
+        /// SearchCatalog class handles the web scrapping and inserting the information into the dictioanry. 
+        /// It is also updating the Database with the user's search and calls the email bot to send an email to the user if necessary.
+        /// </summary> 
+        /// <param name="courseLetters">The first lettrs for the 4 different classes the user wants to search.</param>
+        /// <param name="courseNumbers">The 4 digit numbers for the 5 classes the user wants to search.</param>
+        /// <returns> Returns a Dictionary of Dictionaries with the 4 classes searched and their different sections if exist. </returns>
         public Dictionary<int, Dictionary<int, CourseDetails>> searchCatalog(string[] courseLetters,string[] courseNumbers)
         {
             int section = 1;
@@ -152,30 +162,51 @@ namespace TempleCourseHelper
             return CourseSchedule;
         }
 
-       // public Dictionary<int, CourseDetails> getUserInfo(string ID)
+        // public Dictionary<int, CourseDetails> getUserInfo(string ID)
         //{
-            //Fill CourseSchedule with previous search of the user
+        //Fill CourseSchedule with previous search of the user
         //    return CourseSchedule;
-       // }
+        // }
+
+        /// <summary>  
+        /// Sets the user's ID.
+        /// </summary> 
+        /// <param name="TUID">The unique (9 digit) user ID. </param>
         public void setTUID(string TUID)
         {
             this.TUID = TUID;
         }
-
+        /// <summary>  
+        /// Sets the user's email.
+        /// </summary> 
+        /// <param name="email">The unique user email. </param>
         public void setEmail(string email)
         {
             this.email = email;
         }
-
+        /// <summary>  
+        /// Sets the necessary info we need in order to send the email.
+        /// </summary> 
+        /// <param name="info">The info we are going to send to the user.</param>
         public void setInfo(string info)
         {
             this.info = info;
         }
 
+        /// <summary>  
+        /// Calls the email bot to send the email to the user.
+        /// </summary> 
+        /// <param name="email">The unique user's email. </param>
+        /// <param name="info">The info we are sending. </param>
         public async Task sendEmail(string email, string info)
         {
             await bot.Main(email, info);
         }
+
+        /// <summary>  
+        /// Checks if there is Record for the specific user.
+        /// </summary> 
+        /// <returns> True or False for the specific user ID. </returns>
         public bool checkRecords()
         {
             //Call Setup DB connection
@@ -183,7 +214,11 @@ namespace TempleCourseHelper
             return DB.checkRecords(TUID);
 
         }
-        
+
+        /// <summary>  
+        /// Gets the Records for the specific user.
+        /// </summary> 
+        /// <returns> A dataset with the user's searched records. </returns>
         public DataSet GetRecords()
         {
             DataSet ds = new DataSet();
@@ -193,7 +228,9 @@ namespace TempleCourseHelper
             }
             return ds;
         }
-
+        /// <summary>  
+        /// Calls the Database instance to update the records searched by the user.
+        /// </summary> 
         public void UpdateRecords()
         {
             DB.setupConnection();
