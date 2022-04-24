@@ -208,11 +208,6 @@ namespace TempleCourseHelper
             ctrl.Visible = true;
         }
 
-        private void dgvResults_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnSearchAgain_Click(object sender, EventArgs e)
         {
             disableControl(lblResults1);

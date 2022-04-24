@@ -393,7 +393,6 @@
             this.dgvResults.Size = new System.Drawing.Size(555, 143);
             this.dgvResults.TabIndex = 23;
             this.dgvResults.Visible = false;
-            this.dgvResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellClick);
             // 
             // btnSearchAgain
             // 
