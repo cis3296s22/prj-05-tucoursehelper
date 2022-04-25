@@ -152,3 +152,4 @@ C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\Templ
 C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.csproj.CopyComplete
 C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.exe
 C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\obj\Debug\TempleCourseHelper.pdb
+C:\Users\Swtir\Documents\GitHub\prj-05-tucoursehelper\Temple Course Helper\TempleCourseHelper\bin\Debug\TempleCourseHelper.xml
